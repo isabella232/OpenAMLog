@@ -9,7 +9,7 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static org.forgerock.openam.logreader.psi.OpenAMLogTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
-import com.forgerock.psi.*;
+import org.forgerock.openam.logreader.psi.*;
 
 public class OpenAMLogPropertyImpl extends ASTWrapperPsiElement implements OpenAMLogProperty {
 
