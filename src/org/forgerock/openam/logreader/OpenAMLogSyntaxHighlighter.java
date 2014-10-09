@@ -1,4 +1,4 @@
-package com.simpleplugin;
+package org.forgerock.openam.logreader;
 
 import com.intellij.lexer.Lexer;
 import com.intellij.openapi.editor.SyntaxHighlighterColors;
@@ -7,7 +7,7 @@ import com.intellij.openapi.editor.markup.TextAttributes;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
 import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IElementType;
-import com.simpleplugin.psi.OpenAMLogTypes;
+import org.forgerock.openam.logreader.psi.OpenAMLogTypes;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;

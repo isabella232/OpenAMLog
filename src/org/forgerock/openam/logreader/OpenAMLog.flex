@@ -1,8 +1,8 @@
-package com.simpleplugin;
+package org.forgerock.openam.logreader;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
-import com.simpleplugin.psi.OpenAMLogTypes;
+import org.forgerock.openam.logreader.psi.OpenAMLogTypes;
 import com.intellij.psi.TokenType;
 
 %%

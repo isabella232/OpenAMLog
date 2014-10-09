@@ -1,4 +1,4 @@
-package com.simpleplugin;
+package org.forgerock.openam.logreader;
 
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.Language;
@@ -12,9 +12,9 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IFileElementType;
 import com.intellij.psi.tree.TokenSet;
-import com.simpleplugin.parser.OpenAMLogParser;
-import com.simpleplugin.psi.OpenAMLogFile;
-import com.simpleplugin.psi.OpenAMLogTypes;
+import com.forgerock.parser.OpenAMLogParser;
+import org.forgerock.openam.logreader.psi.OpenAMLogFile;
+import org.forgerock.openam.logreader.psi.OpenAMLogTypes;
 import org.jetbrains.annotations.NotNull;
 
 public class OpenAMLogParserDefinition implements ParserDefinition{

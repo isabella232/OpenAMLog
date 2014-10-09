@@ -1,5 +1,5 @@
 // This is a generated file. Not intended for manual editing.
-package com.simpleplugin.psi;
+package org.forgerock.openam.logreader.psi;
 
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElementVisitor;

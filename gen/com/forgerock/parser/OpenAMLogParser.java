@@ -1,20 +1,19 @@
 // This is a generated file. Not intended for manual editing.
-package com.simpleplugin.parser;
+package com.forgerock.parser;
 
 import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiBuilder.Marker;
 import com.intellij.openapi.diagnostic.Logger;
-import static com.simpleplugin.psi.OpenAMLogTypes.*;
+import static org.forgerock.openam.logreader.psi.OpenAMLogTypes.*;
 import static com.intellij.lang.parser.GeneratedParserUtilBase.*;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.lang.ASTNode;
-import com.intellij.psi.tree.TokenSet;
 import com.intellij.lang.PsiParser;
 
 @SuppressWarnings({"SimplifiableIfStatement", "UnusedAssignment"})
 public class OpenAMLogParser implements PsiParser {
 
-  public static final Logger LOG_ = Logger.getInstance("com.simpleplugin.parser.SimpleParser");
+  public static final Logger LOG_ = Logger.getInstance("com.forgerock.parser.SimpleParser");
 
   public ASTNode parse(IElementType root_, PsiBuilder builder_) {
     boolean result_;

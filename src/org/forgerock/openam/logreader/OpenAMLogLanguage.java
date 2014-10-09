@@ -1,4 +1,4 @@
-package com.simpleplugin;
+package org.forgerock.openam.logreader;
 
 import com.intellij.lang.Language;
 

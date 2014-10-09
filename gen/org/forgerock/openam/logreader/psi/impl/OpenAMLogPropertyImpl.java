@@ -1,11 +1,11 @@
 // This is a generated file. Not intended for manual editing.
-package com.simpleplugin.psi.impl;
+package org.forgerock.openam.logreader.psi.impl;
 
 import org.jetbrains.annotations.*;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
-import com.simpleplugin.psi.*;
+import org.forgerock.openam.logreader.psi.*;
 
 public class OpenAMLogPropertyImpl extends ASTWrapperPsiElement implements OpenAMLogProperty {
 

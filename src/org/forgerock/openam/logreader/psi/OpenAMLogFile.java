@@ -1,10 +1,10 @@
-package com.simpleplugin.psi;
+package org.forgerock.openam.logreader.psi;
 
 import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
-import com.simpleplugin.OpenAMLogFileType;
-import com.simpleplugin.OpenAMLogLanguage;
+import org.forgerock.openam.logreader.OpenAMLogFileType;
+import org.forgerock.openam.logreader.OpenAMLogLanguage;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
