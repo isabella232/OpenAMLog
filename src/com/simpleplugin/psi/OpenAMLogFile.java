@@ -4,14 +4,14 @@ import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
 import com.simpleplugin.OpenAMLogFileType;
-import com.simpleplugin.SimpleLanguage;
+import com.simpleplugin.OpenAMLogLanguage;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 
-public class SimpleFile extends PsiFileBase {
-    public SimpleFile(@NotNull FileViewProvider viewProvider) {
-        super(viewProvider, SimpleLanguage.INSTANCE);
+public class OpenAMLogFile extends PsiFileBase {
+    public OpenAMLogFile(@NotNull FileViewProvider viewProvider) {
+        super(viewProvider, OpenAMLogLanguage.INSTANCE);
     }
 
     @NotNull

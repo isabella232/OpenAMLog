@@ -1,16 +1,16 @@
 {
-  parserClass="com.simpleplugin.parser.SimpleParser"
+  parserClass="com.simpleplugin.parser.OpenAMLogParser"
 
 extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
 
-psiClassPrefix="Simple"
+psiClassPrefix="OpenAMLog"
 psiImplClassSuffix="Impl"
 psiPackage="com.simpleplugin.psi"
 psiImplPackage="com.simpleplugin.psi.impl"
 
-elementTypeHolderClass="com.simpleplugin.psi.SimpleTypes"
-elementTypeClass="com.simpleplugin.psi.SimpleElementType"
-tokenTypeClass="com.simpleplugin.psi.SimpleTokenType"
+elementTypeHolderClass="com.simpleplugin.psi.OpenAMLogTypes"
+elementTypeClass="com.simpleplugin.psi.OpenAMLogElementType"
+tokenTypeClass="com.simpleplugin.psi.OpenAMLogTokenType"
 }
 
 simpleFile ::= item_*

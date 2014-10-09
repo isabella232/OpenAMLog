@@ -6,21 +6,21 @@ import com.intellij.psi.PsiElement;
 import com.intellij.lang.ASTNode;
 import com.simpleplugin.psi.impl.*;
 
-public interface SimpleTypes {
+public interface OpenAMLogTypes {
 
-  IElementType PROPERTY = new SimpleElementType("PROPERTY");
+  IElementType PROPERTY = new OpenAMLogElementType("PROPERTY");
 
-  IElementType COMMENT = new SimpleTokenType("COMMENT");
-  IElementType CRLF = new SimpleTokenType("CRLF");
-  IElementType KEY = new SimpleTokenType("KEY");
-  IElementType SEPARATOR = new SimpleTokenType("SEPARATOR");
-  IElementType VALUE = new SimpleTokenType("VALUE");
+  IElementType COMMENT = new OpenAMLogTokenType("COMMENT");
+  IElementType CRLF = new OpenAMLogTokenType("CRLF");
+  IElementType KEY = new OpenAMLogTokenType("KEY");
+  IElementType SEPARATOR = new OpenAMLogTokenType("SEPARATOR");
+  IElementType VALUE = new OpenAMLogTokenType("VALUE");
 
   class Factory {
     public static PsiElement createElement(ASTNode node) {
       IElementType type = node.getElementType();
        if (type == PROPERTY) {
-        return new SimplePropertyImpl(node);
+        return new OpenAMLogPropertyImpl(node);
       }
       throw new AssertionError("Unknown element type: " + type);
     }

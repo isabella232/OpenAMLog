@@ -10,7 +10,7 @@ public class OpenAMLogFileType extends LanguageFileType {
     public static final OpenAMLogFileType INSTANCE = new OpenAMLogFileType();
 
     private OpenAMLogFileType() {
-        super(SimpleLanguage.INSTANCE);
+        super(OpenAMLogLanguage.INSTANCE);
     }
 
     @NotNull
@@ -34,6 +34,6 @@ public class OpenAMLogFileType extends LanguageFileType {
     @Nullable
     @Override
     public Icon getIcon() {
-        return SimpleIcons.FILE;
+        return OpenAMLogIcons.FILE;
     }
 }

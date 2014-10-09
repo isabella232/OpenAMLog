@@ -4,7 +4,7 @@ package com.simpleplugin.parser;
 import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiBuilder.Marker;
 import com.intellij.openapi.diagnostic.Logger;
-import static com.simpleplugin.psi.SimpleTypes.*;
+import static com.simpleplugin.psi.OpenAMLogTypes.*;
 import static com.intellij.lang.parser.GeneratedParserUtilBase.*;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.lang.ASTNode;
@@ -12,7 +12,7 @@ import com.intellij.psi.tree.TokenSet;
 import com.intellij.lang.PsiParser;
 
 @SuppressWarnings({"SimplifiableIfStatement", "UnusedAssignment"})
-public class SimpleParser implements PsiParser {
+public class OpenAMLogParser implements PsiParser {
 
   public static final Logger LOG_ = Logger.getInstance("com.simpleplugin.parser.SimpleParser");
 

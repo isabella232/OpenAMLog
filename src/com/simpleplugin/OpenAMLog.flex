@@ -2,12 +2,12 @@ package com.simpleplugin;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
-import com.simpleplugin.psi.SimpleTypes;
+import com.simpleplugin.psi.OpenAMLogTypes;
 import com.intellij.psi.TokenType;
 
 %%
 
-%class SimpleLexer
+%class OpenAMLogLexer
 %implements FlexLexer
 %unicode
 %function advance
@@ -27,19 +27,19 @@ KEY_CHARACTER=[^:=\ \n\r\t\f\\] | "\\"{CRLF} | "\\".
 
 %%
 
-<YYINITIAL> {END_OF_LINE_COMMENT}                           { yybegin(YYINITIAL); return SimpleTypes.COMMENT; }
+<YYINITIAL> {END_OF_LINE_COMMENT}                           { yybegin(YYINITIAL); return OpenAMLogTypes.COMMENT; }
 
-<YYINITIAL> {KEY_CHARACTER}+                                { yybegin(YYINITIAL); return SimpleTypes.KEY; }
+<YYINITIAL> {KEY_CHARACTER}+                                { yybegin(YYINITIAL); return OpenAMLogTypes.KEY; }
 
-<YYINITIAL> {SEPARATOR}                                     { yybegin(WAITING_VALUE); return SimpleTypes.SEPARATOR; }
+<YYINITIAL> {SEPARATOR}                                     { yybegin(WAITING_VALUE); return OpenAMLogTypes.SEPARATOR; }
 
-<WAITING_VALUE> {CRLF}                                     { yybegin(YYINITIAL); return SimpleTypes.CRLF; }
+<WAITING_VALUE> {CRLF}                                     { yybegin(YYINITIAL); return OpenAMLogTypes.CRLF; }
 
 <WAITING_VALUE> {WHITE_SPACE}+                              { yybegin(WAITING_VALUE); return TokenType.WHITE_SPACE; }
 
-<WAITING_VALUE> {FIRST_VALUE_CHARACTER}{VALUE_CHARACTER}*   { yybegin(YYINITIAL); return SimpleTypes.VALUE; }
+<WAITING_VALUE> {FIRST_VALUE_CHARACTER}{VALUE_CHARACTER}*   { yybegin(YYINITIAL); return OpenAMLogTypes.VALUE; }
 
-{CRLF}                                                     { yybegin(YYINITIAL); return SimpleTypes.CRLF; }
+{CRLF}                                                     { yybegin(YYINITIAL); return OpenAMLogTypes.CRLF; }
 
 {WHITE_SPACE}+                                              { yybegin(YYINITIAL); return TokenType.WHITE_SPACE; }
 

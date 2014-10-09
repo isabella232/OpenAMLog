@@ -41,7 +41,7 @@
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
       <fileTypeFactory implementation="com.simpleplugin.OpenAMLogFileTypeFactory"/>
-      <lang.parserDefinition language="Simple" implementationClass="com.simpleplugin.SimpleParserDefinition"/>
-      <lang.syntaxHighlighterFactory key="Simple" implementationClass="com.simpleplugin.SimpleSyntaxHighlighterFactory"/>
+      <lang.parserDefinition language="Simple" implementationClass="com.simpleplugin.OpenAMLogParserDefinition"/>
+      <lang.syntaxHighlighterFactory key="Simple" implementationClass="com.simpleplugin.OpenAMLogSyntaxHighlighterFactory"/>
   </extensions>
 </idea-plugin>
