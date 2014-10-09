@@ -1,4 +1,4 @@
-package com.simpleplugin;
+package org.forgerock.openam.logreader;
 
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.Language;
@@ -12,21 +12,21 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IFileElementType;
 import com.intellij.psi.tree.TokenSet;
-import com.simpleplugin.parser.SimpleParser;
-import com.simpleplugin.psi.SimpleFile;
-import com.simpleplugin.psi.SimpleTypes;
+import org.forgerock.openam.logreader.parser.OpenAMLogParser;
+import org.forgerock.openam.logreader.psi.OpenAMLogFile;
+import org.forgerock.openam.logreader.psi.OpenAMLogTypes;
 import org.jetbrains.annotations.NotNull;
 
-public class SimpleParserDefinition implements ParserDefinition{
+public class OpenAMLogParserDefinition implements ParserDefinition{
     public static final TokenSet WHITE_SPACES = TokenSet.create(TokenType.WHITE_SPACE);
-    public static final TokenSet COMMENTS = TokenSet.create(SimpleTypes.COMMENT);
+    public static final TokenSet COMMENTS = TokenSet.create(OpenAMLogTypes.COMMENT);
 
-    public static final IFileElementType FILE = new IFileElementType(Language.<SimpleLanguage>findInstance(SimpleLanguage.class));
+    public static final IFileElementType FILE = new IFileElementType(Language.<OpenAMLogLanguage>findInstance(OpenAMLogLanguage.class));
 
     @NotNull
     @Override
     public Lexer createLexer(Project project) {
-        return new SimpleLexerAdapter();
+        return new OpenAMLogLexerAdapter();
     }
 
     @NotNull
@@ -46,7 +46,7 @@ public class SimpleParserDefinition implements ParserDefinition{
 
     @NotNull
     public PsiParser createParser(final Project project) {
-        return new SimpleParser();
+        return new OpenAMLogParser();
     }
 
     @Override
@@ -55,7 +55,7 @@ public class SimpleParserDefinition implements ParserDefinition{
     }
 
     public PsiFile createFile(FileViewProvider viewProvider) {
-        return new SimpleFile(viewProvider);
+        return new OpenAMLogFile(viewProvider);
     }
 
     public SpaceRequirements spaceExistanceTypeBetweenTokens(ASTNode left, ASTNode right) {
@@ -64,6 +64,6 @@ public class SimpleParserDefinition implements ParserDefinition{
 
     @NotNull
     public PsiElement createElement(ASTNode node) {
-        return SimpleTypes.Factory.createElement(node);
+        return OpenAMLogTypes.Factory.createElement(node);
     }
 }

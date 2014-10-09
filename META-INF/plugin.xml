@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>com.forgerock.openam.logreader</id>
   <name>OpenAM Log</name>
-  <version>1.0</version>
+  <version>0.1</version>
   <vendor email="quentin.castel@forgerock.com" url="http://www.forgerock.org">ForgeRock</vendor>
 
   <description><![CDATA[
@@ -40,8 +40,8 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
-      <fileTypeFactory implementation="com.simpleplugin.OpenAMLogFileTypeFactory"/>
-      <lang.parserDefinition language="Simple" implementationClass="com.simpleplugin.SimpleParserDefinition"/>
-      <lang.syntaxHighlighterFactory key="Simple" implementationClass="com.simpleplugin.SimpleSyntaxHighlighterFactory"/>
+      <fileTypeFactory implementation="org.forgerock.openam.logreader.OpenAMLogFileTypeFactory"/>
+      <lang.parserDefinition language="OpenAMLog" implementationClass="org.forgerock.openam.logreader.OpenAMLogParserDefinition"/>
+      <lang.syntaxHighlighterFactory key="OpenAMLog" implementationClass="org.forgerock.openam.logreader.OpenAMLogSyntaxHighlighterFactory"/>
   </extensions>
 </idea-plugin>

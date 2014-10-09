@@ -1,0 +1,20 @@
+{
+  parserClass="org.forgerock.openam.logreader.parser.OpenAMLogParser"
+
+extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+psiClassPrefix="OpenAMLog"
+psiImplClassSuffix="Impl"
+psiPackage="com.forgerock.openam.logreader.psi"
+psiImplPackage="org.forgerock.openam.logreader.psi.impl"
+
+elementTypeHolderClass="org.forgerock.openam.logreader.psi.OpenAMLogTypes"
+elementTypeClass="org.forgerock.openam.logreader.psi.OpenAMLogElementType"
+tokenTypeClass="org.forgerock.openam.logreader.psi.OpenAMLogTokenType"
+}
+
+openAMLogFile ::= item_*
+
+private item_ ::= (property|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY

@@ -1,4 +1,4 @@
-package com.simpleplugin;
+package org.forgerock.openam.logreader;
 
 import com.intellij.openapi.fileTypes.LanguageFileType;
 import org.jetbrains.annotations.NotNull;
@@ -10,19 +10,19 @@ public class OpenAMLogFileType extends LanguageFileType {
     public static final OpenAMLogFileType INSTANCE = new OpenAMLogFileType();
 
     private OpenAMLogFileType() {
-        super(SimpleLanguage.INSTANCE);
+        super(OpenAMLogLanguage.INSTANCE);
     }
 
     @NotNull
     @Override
     public String getName() {
-        return "Simple file";
+        return "OpenAM Log file";
     }
 
     @NotNull
     @Override
     public String getDescription() {
-        return "Simple language file";
+        return "OpenAM Log language file";
     }
 
     @NotNull
@@ -34,6 +34,6 @@ public class OpenAMLogFileType extends LanguageFileType {
     @Nullable
     @Override
     public Icon getIcon() {
-        return SimpleIcons.FILE;
+        return OpenAMLogIcons.FILE;
     }
 }
