@@ -6,6 +6,6 @@ public class OpenAMLogLanguage extends Language {
     public static final OpenAMLogLanguage INSTANCE = new OpenAMLogLanguage();
 
     private OpenAMLogLanguage() {
-        super("Simple");
+        super("OpenAMLog");
     }
 }

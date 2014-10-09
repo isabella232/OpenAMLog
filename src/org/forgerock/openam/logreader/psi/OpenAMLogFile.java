@@ -22,7 +22,7 @@ public class OpenAMLogFile extends PsiFileBase {
 
     @Override
     public String toString() {
-        return "Simple File";
+        return "OpenAM Log File";
     }
 
     @Override

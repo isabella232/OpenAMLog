@@ -16,13 +16,13 @@ public class OpenAMLogFileType extends LanguageFileType {
     @NotNull
     @Override
     public String getName() {
-        return "Simple file";
+        return "OpenAM Log file";
     }
 
     @NotNull
     @Override
     public String getDescription() {
-        return "Simple language file";
+        return "OpenAM Log language file";
     }
 
     @NotNull

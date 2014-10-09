@@ -1,5 +1,5 @@
 // This is a generated file. Not intended for manual editing.
-package com.forgerock.parser;
+package org.forgerock.openam.logreader.parser;
 
 import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiBuilder.Marker;
@@ -8,12 +8,13 @@ import static org.forgerock.openam.logreader.psi.OpenAMLogTypes.*;
 import static com.intellij.lang.parser.GeneratedParserUtilBase.*;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.lang.ASTNode;
+import com.intellij.psi.tree.TokenSet;
 import com.intellij.lang.PsiParser;
 
 @SuppressWarnings({"SimplifiableIfStatement", "UnusedAssignment"})
 public class OpenAMLogParser implements PsiParser {
 
-  public static final Logger LOG_ = Logger.getInstance("com.forgerock.parser.SimpleParser");
+  public static final Logger LOG_ = Logger.getInstance("org.forgerock.openam.logreader.parser.OpenAMLogParser");
 
   public ASTNode parse(IElementType root_, PsiBuilder builder_) {
     boolean result_;
@@ -30,7 +31,7 @@ public class OpenAMLogParser implements PsiParser {
   }
 
   protected boolean parse_root_(final IElementType root_, final PsiBuilder builder_, final int level_) {
-    return simpleFile(builder_, level_ + 1);
+    return openAMLogFile(builder_, level_ + 1);
   }
 
   /* ********************************************************** */
@@ -44,6 +45,19 @@ public class OpenAMLogParser implements PsiParser {
     if (!result_) result_ = consumeToken(builder_, CRLF);
     exit_section_(builder_, marker_, null, result_);
     return result_;
+  }
+
+  /* ********************************************************** */
+  // item_*
+  static boolean openAMLogFile(PsiBuilder builder_, int level_) {
+    if (!recursion_guard_(builder_, level_, "openAMLogFile")) return false;
+    int pos_ = current_position_(builder_);
+    while (true) {
+      if (!item_(builder_, level_ + 1)) break;
+      if (!empty_element_parsed_guard_(builder_, "openAMLogFile", pos_)) break;
+      pos_ = current_position_(builder_);
+    }
+    return true;
   }
 
   /* ********************************************************** */
@@ -82,19 +96,6 @@ public class OpenAMLogParser implements PsiParser {
   private static boolean property_0_2(PsiBuilder builder_, int level_) {
     if (!recursion_guard_(builder_, level_, "property_0_2")) return false;
     consumeToken(builder_, VALUE);
-    return true;
-  }
-
-  /* ********************************************************** */
-  // item_*
-  static boolean simpleFile(PsiBuilder builder_, int level_) {
-    if (!recursion_guard_(builder_, level_, "simpleFile")) return false;
-    int pos_ = current_position_(builder_);
-    while (true) {
-      if (!item_(builder_, level_ + 1)) break;
-      if (!empty_element_parsed_guard_(builder_, "simpleFile", pos_)) break;
-      pos_ = current_position_(builder_);
-    }
     return true;
   }
 

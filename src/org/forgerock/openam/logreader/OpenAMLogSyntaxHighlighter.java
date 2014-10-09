@@ -15,12 +15,12 @@ import java.awt.*;
 import static com.intellij.openapi.editor.colors.TextAttributesKey.createTextAttributesKey;
 
 public class OpenAMLogSyntaxHighlighter extends SyntaxHighlighterBase {
-    public static final TextAttributesKey SEPARATOR = createTextAttributesKey("SIMPLE_SEPARATOR", SyntaxHighlighterColors.OPERATION_SIGN);
-    public static final TextAttributesKey KEY = createTextAttributesKey("SIMPLE_KEY", SyntaxHighlighterColors.KEYWORD);
-    public static final TextAttributesKey VALUE = createTextAttributesKey("SIMPLE_VALUE", SyntaxHighlighterColors.STRING);
-    public static final TextAttributesKey COMMENT = createTextAttributesKey("SIMPLE_COMMENT", SyntaxHighlighterColors.LINE_COMMENT);
+    public static final TextAttributesKey SEPARATOR = createTextAttributesKey("OPENAMLOG_SEPARATOR", SyntaxHighlighterColors.OPERATION_SIGN);
+    public static final TextAttributesKey KEY = createTextAttributesKey("OPENAMLOG_KEY", SyntaxHighlighterColors.KEYWORD);
+    public static final TextAttributesKey VALUE = createTextAttributesKey("OPENAMLOG_VALUE", SyntaxHighlighterColors.STRING);
+    public static final TextAttributesKey COMMENT = createTextAttributesKey("OPENAMLOG_COMMENT", SyntaxHighlighterColors.LINE_COMMENT);
 
-    static final TextAttributesKey BAD_CHARACTER = createTextAttributesKey("SIMPLE_BAD_CHARACTER",
+    static final TextAttributesKey BAD_CHARACTER = createTextAttributesKey("OPENAMLOG_BAD_CHARACTER",
             new TextAttributes(Color.RED, null, null, null, Font.BOLD));
 
     private static final TextAttributesKey[] BAD_CHAR_KEYS = new TextAttributesKey[]{BAD_CHARACTER};

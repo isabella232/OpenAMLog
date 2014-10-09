@@ -1,5 +1,5 @@
 {
-  parserClass="com.forgerock.parser.OpenAMLogParser"
+  parserClass="org.forgerock.openam.logreader.parser.OpenAMLogParser"
 
 extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
 
@@ -13,7 +13,7 @@ elementTypeClass="org.forgerock.openam.logreader.psi.OpenAMLogElementType"
 tokenTypeClass="org.forgerock.openam.logreader.psi.OpenAMLogTokenType"
 }
 
-simpleFile ::= item_*
+openAMLogFile ::= item_*
 
 private item_ ::= (property|COMMENT|CRLF)
 
