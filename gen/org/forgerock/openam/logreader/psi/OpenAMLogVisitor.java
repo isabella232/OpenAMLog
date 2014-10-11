@@ -7,7 +7,15 @@ import com.intellij.psi.PsiElement;
 
 public class OpenAMLogVisitor extends PsiElementVisitor {
 
-  public void visitProperty(@NotNull OpenAMLogProperty o) {
+  public void visitLog(@NotNull OpenAMLogLog o) {
+    visitPsiElement(o);
+  }
+
+  public void visitLogcontent(@NotNull OpenAMLogLogcontent o) {
+    visitPsiElement(o);
+  }
+
+  public void visitLogtitle(@NotNull OpenAMLogLogtitle o) {
     visitPsiElement(o);
   }
 

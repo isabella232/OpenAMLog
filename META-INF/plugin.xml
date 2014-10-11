@@ -43,5 +43,6 @@
       <fileTypeFactory implementation="org.forgerock.openam.logreader.OpenAMLogFileTypeFactory"/>
       <lang.parserDefinition language="OpenAMLog" implementationClass="org.forgerock.openam.logreader.OpenAMLogParserDefinition"/>
       <lang.syntaxHighlighterFactory key="OpenAMLog" implementationClass="org.forgerock.openam.logreader.OpenAMLogSyntaxHighlighterFactory"/>
+      <colorSettingsPage implementation="org.forgerock.openam.logreader.OpenAMLogColorSettingsPage"/>
   </extensions>
 </idea-plugin>

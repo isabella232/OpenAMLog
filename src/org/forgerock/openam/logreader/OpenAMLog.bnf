@@ -5,7 +5,7 @@ extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
 
 psiClassPrefix="OpenAMLog"
 psiImplClassSuffix="Impl"
-psiPackage="com.forgerock.openam.logreader.psi"
+psiPackage="org.forgerock.openam.logreader.psi"
 psiImplPackage="org.forgerock.openam.logreader.psi.impl"
 
 elementTypeHolderClass="org.forgerock.openam.logreader.psi.OpenAMLogTypes"
@@ -15,6 +15,8 @@ tokenTypeClass="org.forgerock.openam.logreader.psi.OpenAMLogTokenType"
 
 openAMLogFile ::= item_*
 
-private item_ ::= (property|COMMENT|CRLF)
+private item_ ::= (COMMENT|log|CRLF)
 
-property ::= (KEY? SEPARATOR VALUE?) | KEY
+log ::= logtitle CRLF logcontent
+logtitle ::= (DEBUG_NAME SEPARATOR DATE SEPARATOR THREAD_NAME)
+logcontent ::= LOG_LINE CRLF  (LOG_LINE? CRLF)* END_OF_LOG_CONTENT | LOG_LINE CRLF  (LOG_LINE? CRLF)* LOG_LINE END_OF_LOG_CONTENT | LOG_LINE END_OF_LOG_CONTENT
