@@ -11,14 +11,14 @@ import static org.forgerock.openam.logreader.psi.OpenAMLogTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import org.forgerock.openam.logreader.psi.*;
 
-public class OpenAMLogPropertyImpl extends ASTWrapperPsiElement implements OpenAMLogProperty {
+public class OpenAMLogLogtitleImpl extends ASTWrapperPsiElement implements OpenAMLogLogtitle {
 
-  public OpenAMLogPropertyImpl(ASTNode node) {
+  public OpenAMLogLogtitleImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
-    if (visitor instanceof OpenAMLogVisitor) ((OpenAMLogVisitor)visitor).visitProperty(this);
+    if (visitor instanceof OpenAMLogVisitor) ((OpenAMLogVisitor)visitor).visitLogtitle(this);
     else super.accept(visitor);
   }
 

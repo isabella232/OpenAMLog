@@ -8,27 +8,30 @@ import org.forgerock.openam.logreader.psi.impl.*;
 
 public interface OpenAMLogTypes {
 
+  IElementType LOG = new OpenAMLogElementType("LOG");
+  IElementType LOGCONTENT = new OpenAMLogElementType("LOGCONTENT");
   IElementType LOGTITLE = new OpenAMLogElementType("LOGTITLE");
-  IElementType PROPERTY = new OpenAMLogElementType("PROPERTY");
 
   IElementType COMMENT = new OpenAMLogTokenType("COMMENT");
   IElementType CRLF = new OpenAMLogTokenType("CRLF");
   IElementType DATE = new OpenAMLogTokenType("DATE");
   IElementType DEBUG_NAME = new OpenAMLogTokenType("DEBUG_NAME");
-  IElementType KEY = new OpenAMLogTokenType("KEY");
-  IElementType LOG_HEADER = new OpenAMLogTokenType("LOG_HEADER");
+  IElementType END_OF_LOG_CONTENT = new OpenAMLogTokenType("END_OF_LOG_CONTENT");
+  IElementType LOG_LINE = new OpenAMLogTokenType("LOG_LINE");
   IElementType SEPARATOR = new OpenAMLogTokenType("SEPARATOR");
   IElementType THREAD_NAME = new OpenAMLogTokenType("THREAD_NAME");
-  IElementType VALUE = new OpenAMLogTokenType("VALUE");
 
   class Factory {
     public static PsiElement createElement(ASTNode node) {
       IElementType type = node.getElementType();
-       if (type == LOGTITLE) {
-        return new OpenAMLogLogtitleImpl(node);
+       if (type == LOG) {
+        return new OpenAMLogLogImpl(node);
       }
-      else if (type == PROPERTY) {
-        return new OpenAMLogPropertyImpl(node);
+      else if (type == LOGCONTENT) {
+        return new OpenAMLogLogcontentImpl(node);
+      }
+      else if (type == LOGTITLE) {
+        return new OpenAMLogLogtitleImpl(node);
       }
       throw new AssertionError("Unknown element type: " + type);
     }

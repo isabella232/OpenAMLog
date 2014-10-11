@@ -20,11 +20,14 @@ public class OpenAMLogParser implements PsiParser {
     boolean result_;
     builder_ = adapt_builder_(root_, builder_, this, null);
     Marker marker_ = enter_section_(builder_, 0, _COLLAPSE_, null);
-    if (root_ == LOGTITLE) {
-      result_ = logtitle(builder_, 0);
+    if (root_ == LOG) {
+      result_ = log(builder_, 0);
     }
-    else if (root_ == PROPERTY) {
-      result_ = property(builder_, 0);
+    else if (root_ == LOGCONTENT) {
+      result_ = logcontent(builder_, 0);
+    }
+    else if (root_ == LOGTITLE) {
+      result_ = logtitle(builder_, 0);
     }
     else {
       result_ = parse_root_(root_, builder_, 0);
@@ -38,18 +41,128 @@ public class OpenAMLogParser implements PsiParser {
   }
 
   /* ********************************************************** */
-  // property|logtitle|COMMENT|CRLF|LOG_HEADER
+  // COMMENT|log|CRLF
   static boolean item_(PsiBuilder builder_, int level_) {
     if (!recursion_guard_(builder_, level_, "item_")) return false;
     boolean result_;
     Marker marker_ = enter_section_(builder_);
-    result_ = property(builder_, level_ + 1);
-    if (!result_) result_ = logtitle(builder_, level_ + 1);
-    if (!result_) result_ = consumeToken(builder_, COMMENT);
+    result_ = consumeToken(builder_, COMMENT);
+    if (!result_) result_ = log(builder_, level_ + 1);
     if (!result_) result_ = consumeToken(builder_, CRLF);
-    if (!result_) result_ = consumeToken(builder_, LOG_HEADER);
     exit_section_(builder_, marker_, null, result_);
     return result_;
+  }
+
+  /* ********************************************************** */
+  // logtitle CRLF logcontent
+  public static boolean log(PsiBuilder builder_, int level_) {
+    if (!recursion_guard_(builder_, level_, "log")) return false;
+    if (!nextTokenIs(builder_, DEBUG_NAME)) return false;
+    boolean result_;
+    Marker marker_ = enter_section_(builder_);
+    result_ = logtitle(builder_, level_ + 1);
+    result_ = result_ && consumeToken(builder_, CRLF);
+    result_ = result_ && logcontent(builder_, level_ + 1);
+    exit_section_(builder_, marker_, LOG, result_);
+    return result_;
+  }
+
+  /* ********************************************************** */
+  // LOG_LINE CRLF  (LOG_LINE? CRLF)* END_OF_LOG_CONTENT | LOG_LINE CRLF  (LOG_LINE? CRLF)* LOG_LINE END_OF_LOG_CONTENT | LOG_LINE END_OF_LOG_CONTENT
+  public static boolean logcontent(PsiBuilder builder_, int level_) {
+    if (!recursion_guard_(builder_, level_, "logcontent")) return false;
+    if (!nextTokenIs(builder_, LOG_LINE)) return false;
+    boolean result_;
+    Marker marker_ = enter_section_(builder_);
+    result_ = logcontent_0(builder_, level_ + 1);
+    if (!result_) result_ = logcontent_1(builder_, level_ + 1);
+    if (!result_) result_ = parseTokens(builder_, 0, LOG_LINE, END_OF_LOG_CONTENT);
+    exit_section_(builder_, marker_, LOGCONTENT, result_);
+    return result_;
+  }
+
+  // LOG_LINE CRLF  (LOG_LINE? CRLF)* END_OF_LOG_CONTENT
+  private static boolean logcontent_0(PsiBuilder builder_, int level_) {
+    if (!recursion_guard_(builder_, level_, "logcontent_0")) return false;
+    boolean result_;
+    Marker marker_ = enter_section_(builder_);
+    result_ = consumeTokens(builder_, 0, LOG_LINE, CRLF);
+    result_ = result_ && logcontent_0_2(builder_, level_ + 1);
+    result_ = result_ && consumeToken(builder_, END_OF_LOG_CONTENT);
+    exit_section_(builder_, marker_, null, result_);
+    return result_;
+  }
+
+  // (LOG_LINE? CRLF)*
+  private static boolean logcontent_0_2(PsiBuilder builder_, int level_) {
+    if (!recursion_guard_(builder_, level_, "logcontent_0_2")) return false;
+    int pos_ = current_position_(builder_);
+    while (true) {
+      if (!logcontent_0_2_0(builder_, level_ + 1)) break;
+      if (!empty_element_parsed_guard_(builder_, "logcontent_0_2", pos_)) break;
+      pos_ = current_position_(builder_);
+    }
+    return true;
+  }
+
+  // LOG_LINE? CRLF
+  private static boolean logcontent_0_2_0(PsiBuilder builder_, int level_) {
+    if (!recursion_guard_(builder_, level_, "logcontent_0_2_0")) return false;
+    boolean result_;
+    Marker marker_ = enter_section_(builder_);
+    result_ = logcontent_0_2_0_0(builder_, level_ + 1);
+    result_ = result_ && consumeToken(builder_, CRLF);
+    exit_section_(builder_, marker_, null, result_);
+    return result_;
+  }
+
+  // LOG_LINE?
+  private static boolean logcontent_0_2_0_0(PsiBuilder builder_, int level_) {
+    if (!recursion_guard_(builder_, level_, "logcontent_0_2_0_0")) return false;
+    consumeToken(builder_, LOG_LINE);
+    return true;
+  }
+
+  // LOG_LINE CRLF  (LOG_LINE? CRLF)* LOG_LINE END_OF_LOG_CONTENT
+  private static boolean logcontent_1(PsiBuilder builder_, int level_) {
+    if (!recursion_guard_(builder_, level_, "logcontent_1")) return false;
+    boolean result_;
+    Marker marker_ = enter_section_(builder_);
+    result_ = consumeTokens(builder_, 0, LOG_LINE, CRLF);
+    result_ = result_ && logcontent_1_2(builder_, level_ + 1);
+    result_ = result_ && consumeTokens(builder_, 0, LOG_LINE, END_OF_LOG_CONTENT);
+    exit_section_(builder_, marker_, null, result_);
+    return result_;
+  }
+
+  // (LOG_LINE? CRLF)*
+  private static boolean logcontent_1_2(PsiBuilder builder_, int level_) {
+    if (!recursion_guard_(builder_, level_, "logcontent_1_2")) return false;
+    int pos_ = current_position_(builder_);
+    while (true) {
+      if (!logcontent_1_2_0(builder_, level_ + 1)) break;
+      if (!empty_element_parsed_guard_(builder_, "logcontent_1_2", pos_)) break;
+      pos_ = current_position_(builder_);
+    }
+    return true;
+  }
+
+  // LOG_LINE? CRLF
+  private static boolean logcontent_1_2_0(PsiBuilder builder_, int level_) {
+    if (!recursion_guard_(builder_, level_, "logcontent_1_2_0")) return false;
+    boolean result_;
+    Marker marker_ = enter_section_(builder_);
+    result_ = logcontent_1_2_0_0(builder_, level_ + 1);
+    result_ = result_ && consumeToken(builder_, CRLF);
+    exit_section_(builder_, marker_, null, result_);
+    return result_;
+  }
+
+  // LOG_LINE?
+  private static boolean logcontent_1_2_0_0(PsiBuilder builder_, int level_) {
+    if (!recursion_guard_(builder_, level_, "logcontent_1_2_0_0")) return false;
+    consumeToken(builder_, LOG_LINE);
+    return true;
   }
 
   /* ********************************************************** */
@@ -74,45 +187,6 @@ public class OpenAMLogParser implements PsiParser {
       if (!empty_element_parsed_guard_(builder_, "openAMLogFile", pos_)) break;
       pos_ = current_position_(builder_);
     }
-    return true;
-  }
-
-  /* ********************************************************** */
-  // (KEY? SEPARATOR VALUE?) | KEY
-  public static boolean property(PsiBuilder builder_, int level_) {
-    if (!recursion_guard_(builder_, level_, "property")) return false;
-    if (!nextTokenIs(builder_, "<property>", KEY, SEPARATOR)) return false;
-    boolean result_;
-    Marker marker_ = enter_section_(builder_, level_, _NONE_, "<property>");
-    result_ = property_0(builder_, level_ + 1);
-    if (!result_) result_ = consumeToken(builder_, KEY);
-    exit_section_(builder_, level_, marker_, PROPERTY, result_, false, null);
-    return result_;
-  }
-
-  // KEY? SEPARATOR VALUE?
-  private static boolean property_0(PsiBuilder builder_, int level_) {
-    if (!recursion_guard_(builder_, level_, "property_0")) return false;
-    boolean result_;
-    Marker marker_ = enter_section_(builder_);
-    result_ = property_0_0(builder_, level_ + 1);
-    result_ = result_ && consumeToken(builder_, SEPARATOR);
-    result_ = result_ && property_0_2(builder_, level_ + 1);
-    exit_section_(builder_, marker_, null, result_);
-    return result_;
-  }
-
-  // KEY?
-  private static boolean property_0_0(PsiBuilder builder_, int level_) {
-    if (!recursion_guard_(builder_, level_, "property_0_0")) return false;
-    consumeToken(builder_, KEY);
-    return true;
-  }
-
-  // VALUE?
-  private static boolean property_0_2(PsiBuilder builder_, int level_) {
-    if (!recursion_guard_(builder_, level_, "property_0_2")) return false;
-    consumeToken(builder_, VALUE);
     return true;
   }
 

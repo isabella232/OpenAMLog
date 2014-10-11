@@ -15,7 +15,8 @@ tokenTypeClass="org.forgerock.openam.logreader.psi.OpenAMLogTokenType"
 
 openAMLogFile ::= item_*
 
-private item_ ::= (property|logtitle|COMMENT|CRLF|LOG_HEADER)
+private item_ ::= (COMMENT|log|CRLF)
 
-property ::= (KEY? SEPARATOR VALUE?) | KEY
+log ::= logtitle CRLF logcontent
 logtitle ::= (DEBUG_NAME SEPARATOR DATE SEPARATOR THREAD_NAME)
+logcontent ::= LOG_LINE CRLF  (LOG_LINE? CRLF)* END_OF_LOG_CONTENT | LOG_LINE CRLF  (LOG_LINE? CRLF)* LOG_LINE END_OF_LOG_CONTENT | LOG_LINE END_OF_LOG_CONTENT
