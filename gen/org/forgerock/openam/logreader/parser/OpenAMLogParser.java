@@ -20,7 +20,10 @@ public class OpenAMLogParser implements PsiParser {
     boolean result_;
     builder_ = adapt_builder_(root_, builder_, this, null);
     Marker marker_ = enter_section_(builder_, 0, _COLLAPSE_, null);
-    if (root_ == PROPERTY) {
+    if (root_ == LOGTITLE) {
+      result_ = logtitle(builder_, 0);
+    }
+    else if (root_ == PROPERTY) {
       result_ = property(builder_, 0);
     }
     else {
@@ -35,15 +38,29 @@ public class OpenAMLogParser implements PsiParser {
   }
 
   /* ********************************************************** */
-  // property|COMMENT|CRLF
+  // property|logtitle|COMMENT|CRLF|LOG_HEADER
   static boolean item_(PsiBuilder builder_, int level_) {
     if (!recursion_guard_(builder_, level_, "item_")) return false;
     boolean result_;
     Marker marker_ = enter_section_(builder_);
     result_ = property(builder_, level_ + 1);
+    if (!result_) result_ = logtitle(builder_, level_ + 1);
     if (!result_) result_ = consumeToken(builder_, COMMENT);
     if (!result_) result_ = consumeToken(builder_, CRLF);
+    if (!result_) result_ = consumeToken(builder_, LOG_HEADER);
     exit_section_(builder_, marker_, null, result_);
+    return result_;
+  }
+
+  /* ********************************************************** */
+  // DEBUG_NAME SEPARATOR DATE SEPARATOR THREAD_NAME
+  public static boolean logtitle(PsiBuilder builder_, int level_) {
+    if (!recursion_guard_(builder_, level_, "logtitle")) return false;
+    if (!nextTokenIs(builder_, DEBUG_NAME)) return false;
+    boolean result_;
+    Marker marker_ = enter_section_(builder_);
+    result_ = consumeTokens(builder_, 0, DEBUG_NAME, SEPARATOR, DATE, SEPARATOR, THREAD_NAME);
+    exit_section_(builder_, marker_, LOGTITLE, result_);
     return result_;
   }
 

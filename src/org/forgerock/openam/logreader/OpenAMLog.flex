@@ -23,7 +23,7 @@ END_OF_LINE_COMMENT=("#"|"!")[^\r\n]*
 SEPARATOR=[:=]
 KEY_CHARACTER=[^:=\ \n\r\t\f\\] | "\\"{CRLF} | "\\".
 
-%state WAITING_VALUE
+%state WAITING_VALUE, WAIT_LOG_VALUE
 
 %%
 
