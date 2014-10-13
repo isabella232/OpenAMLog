@@ -25,6 +25,7 @@ public class LogPropertiesPanel extends JPanel implements Runnable{
     private DebugNameListModel debugNameListModel = new DebugNameListModel();
     private JTable table;
     private JSplitPane splitPane;
+    public int SPLIT_DIVIDER_POSITION = 300;
 
     private final OpenAMLogProjectComponent _projectComponent;
     private final Project _project;
@@ -49,6 +50,8 @@ public class LogPropertiesPanel extends JPanel implements Runnable{
         table=new JTable(model){@Override public boolean isCellEditable(int arg0, int arg1) { return false; }};
 
         splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, new JBScrollPane(debugNameJList), table);
+        splitPane.setDividerLocation(SPLIT_DIVIDER_POSITION);
+
         add(splitPane);
 
     }

@@ -8,7 +8,7 @@ import java.util.TreeSet;
 /**
  * Created by qcastel on 12/10/2014.
  */
-public class DebugNameListModel extends DefaultListModel<String> {
+public class DebugNameListModel extends DefaultListModel {
 
     private Set<String> debugNames = new TreeSet<String>();
 

@@ -37,20 +37,6 @@
 
     <actions>
 
-        <action class="org.forgerock.openam.logreader.viewer.actions.ViewFileElementAction" description="Display OpenAM log properties and tool bar" icon="/org/forgerock/openam/logreader/icons/forgerock-icon.png" id="openAM.properties" text="View OpenAM log tools">
-            <keyboard-shortcut first-keystroke="control shift P" keymap="$default"/>
-        </action>
-
-        <!--<action id="com.sylvanaar.idea.errorreporting.TriggerExceptionAction"-->
-        <!--class="com.sylvanaar.idea.errorreporting.TriggerExceptionAction" text="Trigger PsiViewer Exception">-->
-        <!--<add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="PsiViewer"/>-->
-        <!--</action>-->
-
-        <group id="OpenAMLogViewerEditor" popup="true" text="OpenAM">
-            <reference ref="openAM.properties"/>
-            <add-to-group anchor="last" group-id="EditorPopupMenu"/>
-        </group>
-
     </actions>
 
   <extensions defaultExtensionNs="com.intellij">
