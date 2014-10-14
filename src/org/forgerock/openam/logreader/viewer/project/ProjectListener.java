@@ -1,6 +1,7 @@
 package org.forgerock.openam.logreader.viewer.project;
 
 import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.editor.FoldRegion;
 import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.fileEditor.FileEditorManagerEvent;
 import com.intellij.openapi.fileEditor.FileEditorManagerListener;
@@ -10,10 +11,14 @@ import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowManager;
 import com.intellij.psi.PsiDocumentManager;
 import com.intellij.psi.PsiFile;
+import org.forgerock.openam.logreader.folding.OpenAMLogFolding;
 import org.forgerock.openam.logreader.psi.OpenAMLogFile;
 import org.forgerock.openam.logreader.viewer.LogPropertiesPanel;
 import org.forgerock.openam.logreader.viewer.OpenAMLogViewerConstants;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by qcastel on 12/10/2014.
@@ -22,6 +27,7 @@ public class ProjectListener implements FileEditorManagerListener {
 
     private LogPropertiesPanel viewer;
     private final Project project;
+    private Map<OpenAMLogFile, OpenAMLogFolding> foldingsByLogFile = new HashMap<OpenAMLogFile, OpenAMLogFolding>();
 
     public ProjectListener(LogPropertiesPanel viewer, Project project) {
         this.viewer = viewer;
@@ -40,9 +46,21 @@ public class ProjectListener implements FileEditorManagerListener {
 
     @Override
     public void selectionChanged(@NotNull FileEditorManagerEvent event) {
-        Editor editor = FileEditorManager.getInstance(project).getSelectedTextEditor();
+        final Editor editor = FileEditorManager.getInstance(project).getSelectedTextEditor();
         try {
             OpenAMLogFile logFile = (OpenAMLogFile) PsiDocumentManager.getInstance(project).getPsiFile(editor.getDocument());
+
+            if(!foldingsByLogFile.containsKey(logFile)) {
+                foldingsByLogFile.put(logFile, new OpenAMLogFolding(logFile));
+            }
+            final OpenAMLogFolding folding = foldingsByLogFile.get(logFile);
+            editor.getFoldingModel().runBatchFoldingOperation(new Runnable() {
+                @Override
+                public void run() {
+                    folding.generateFoldingRegions(editor);
+                }
+            });
+
             ToolWindow toolWindow = ToolWindowManager.getInstance(project).getToolWindow(OpenAMLogViewerConstants.ID_TOOL_WINDOW);
             if (toolWindow != null)
             {
@@ -50,6 +68,12 @@ public class ProjectListener implements FileEditorManagerListener {
             }
             viewer.setVisible(true);
             viewer.refreshOpenAMLogProperties(logFile);
+            editor.getFoldingModel().runBatchFoldingOperation(new Runnable() {
+                @Override
+                public void run() {
+                    folding.close("amAuth");
+                }
+            });
         } catch(ClassCastException e) {
             ToolWindow toolWindow = ToolWindowManager.getInstance(project).getToolWindow(OpenAMLogViewerConstants.ID_TOOL_WINDOW);
             if (toolWindow != null)
@@ -59,5 +83,6 @@ public class ProjectListener implements FileEditorManagerListener {
             //not an OpenAM log file
             viewer.setVisible(false);
         }
+
     }
 }
