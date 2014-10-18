@@ -47,8 +47,17 @@ public class ProjectListener implements FileEditorManagerListener {
     @Override
     public void selectionChanged(@NotNull FileEditorManagerEvent event) {
         final Editor editor = FileEditorManager.getInstance(project).getSelectedTextEditor();
+        if(editor == null) {
+            closeOpenAMLogView();
+            return;
+        }
         try {
-            OpenAMLogFile logFile = (OpenAMLogFile) PsiDocumentManager.getInstance(project).getPsiFile(editor.getDocument());
+            PsiDocumentManager psiDocumentManager = PsiDocumentManager.getInstance(project);
+            if(psiDocumentManager == null) {
+                closeOpenAMLogView();
+                return;
+            }
+            OpenAMLogFile logFile = (OpenAMLogFile) psiDocumentManager.getPsiFile(editor.getDocument());
 
             if(!foldingsByLogFile.containsKey(logFile)) {
                 foldingsByLogFile.put(logFile, new OpenAMLogFolding(logFile));
@@ -71,18 +80,22 @@ public class ProjectListener implements FileEditorManagerListener {
             editor.getFoldingModel().runBatchFoldingOperation(new Runnable() {
                 @Override
                 public void run() {
-                    folding.close("amAuth");
+                    //folding.close("amAuth");
                 }
             });
         } catch(ClassCastException e) {
-            ToolWindow toolWindow = ToolWindowManager.getInstance(project).getToolWindow(OpenAMLogViewerConstants.ID_TOOL_WINDOW);
-            if (toolWindow != null)
-            {
-                toolWindow.hide(viewer);
-            }
-            //not an OpenAM log file
-            viewer.setVisible(false);
+            closeOpenAMLogView();
         }
 
+    }
+
+    private void closeOpenAMLogView() {
+        ToolWindow toolWindow = ToolWindowManager.getInstance(project).getToolWindow(OpenAMLogViewerConstants.ID_TOOL_WINDOW);
+        if (toolWindow != null)
+        {
+            toolWindow.hide(viewer);
+        }
+        //not an OpenAM log file
+        viewer.setVisible(false);
     }
 }
