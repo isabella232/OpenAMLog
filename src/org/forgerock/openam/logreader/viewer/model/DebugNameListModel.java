@@ -1,7 +1,6 @@
 package org.forgerock.openam.logreader.viewer.model;
 
 import javax.swing.*;
-import javax.swing.event.ListDataListener;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -13,10 +12,10 @@ public class DebugNameListModel extends DefaultListModel {
     private Set<String> debugNames = new TreeSet<String>();
 
 
-    public void setDebugNames( Set<String> debugNames) {
+    public void setDebugNames(Set<String> debugNames) {
         this.debugNames = debugNames;
         this.removeAllElements();
-        for(String debugName : debugNames) {
+        for (String debugName : debugNames) {
             this.addElement(debugName);
         }
     }

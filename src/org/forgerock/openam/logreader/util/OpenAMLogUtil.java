@@ -1,12 +1,6 @@
 package org.forgerock.openam.logreader.util;
 
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.psi.PsiManager;
-import com.intellij.psi.search.FileTypeIndex;
-import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.util.PsiTreeUtil;
-import com.intellij.util.indexing.FileBasedIndex;
 import org.forgerock.openam.logreader.psi.OpenAMLogFile;
 import org.forgerock.openam.logreader.psi.OpenAMLogLog;
 
@@ -56,8 +50,8 @@ public class OpenAMLogUtil {
             if (logs != null) {
                 for (OpenAMLogLog log : logs) {
                     Date currentDate = log.getLogtitle().getDate();
-                    if(currentDate != null) {
-                        if(minDate == null || !currentDate.after(minDate)) {
+                    if (currentDate != null) {
+                        if (minDate == null || !currentDate.after(minDate)) {
                             minDate = currentDate;
                         }
                     }
@@ -74,8 +68,8 @@ public class OpenAMLogUtil {
             if (logs != null) {
                 for (OpenAMLogLog log : logs) {
                     Date currentDate = log.getLogtitle().getDate();
-                    if(currentDate != null) {
-                        if(maxDate == null || currentDate.after(maxDate)) {
+                    if (currentDate != null) {
+                        if (maxDate == null || currentDate.after(maxDate)) {
                             maxDate = currentDate;
                         }
                     }

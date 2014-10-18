@@ -8,7 +8,10 @@ import org.forgerock.openam.logreader.psi.OpenAMLogFile;
 import org.forgerock.openam.logreader.psi.OpenAMLogLog;
 import org.forgerock.openam.logreader.psi.OpenAMLogPsiImplUtil;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by qcastel on 13/10/2014.
@@ -16,7 +19,7 @@ import java.util.*;
 public class OpenAMLogFolding {
 
     private Map<OpenAMLogLog, FoldRegion> logFoldingRegion = new HashMap<OpenAMLogLog, FoldRegion>();
-    private Map<String, List<FoldRegion>> logFoldingRegionByDebugNames = new HashMap<String,  List<FoldRegion>>();
+    private Map<String, List<FoldRegion>> logFoldingRegionByDebugNames = new HashMap<String, List<FoldRegion>>();
     private Map<String, Boolean> isDebugNameOpen = new HashMap<String, Boolean>();
 
     private OpenAMLogFile openAMLogFile;
@@ -37,20 +40,20 @@ public class OpenAMLogFolding {
             if (logs != null) {
                 for (OpenAMLogLog log : logs) {
                     TextRange textRange = log.getTextRange();
-                    FoldRegion foldingRegion = editor.getFoldingModel().addFoldRegion(textRange.getStartOffset(), textRange.getEndOffset() - 1 , log.getLogtitle().getDebugName() + ":"
+                    FoldRegion foldingRegion = editor.getFoldingModel().addFoldRegion(textRange.getStartOffset(), textRange.getEndOffset() - 1, log.getLogtitle().getDebugName() + ":"
                             + OpenAMLogPsiImplUtil.dateFormat.format(log.getLogtitle().getDate()) + "\n");
                     logFoldingRegion.put(log, foldingRegion);
 
                     String debugName = log.getLogtitle().getDebugName();
-                    if(!logFoldingRegionByDebugNames.containsKey(debugName)) {
+                    if (!logFoldingRegionByDebugNames.containsKey(debugName)) {
                         logFoldingRegionByDebugNames.put(debugName, new ArrayList<FoldRegion>());
                     }
                     logFoldingRegionByDebugNames.get(debugName).add(foldingRegion);
 
-                    if(!isDebugNameOpen.containsKey(debugName)) {
+                    if (!isDebugNameOpen.containsKey(debugName)) {
                         isDebugNameOpen.put(debugName, Boolean.TRUE);
                     }
-                    if(!isDebugNameOpen.get(debugName)) {
+                    if (!isDebugNameOpen.get(debugName)) {
                         foldingRegion.setExpanded(false);
                     }
                 }
@@ -60,8 +63,8 @@ public class OpenAMLogFolding {
 
     public void close(String debugName) {
         isDebugNameOpen.put(debugName, Boolean.FALSE);
-        if(logFoldingRegionByDebugNames.containsKey(debugName)) {
-            for(FoldRegion foldRegion : logFoldingRegionByDebugNames.get(debugName)) {
+        if (logFoldingRegionByDebugNames.containsKey(debugName)) {
+            for (FoldRegion foldRegion : logFoldingRegionByDebugNames.get(debugName)) {
                 foldRegion.setExpanded(false);
             }
         }
@@ -69,8 +72,8 @@ public class OpenAMLogFolding {
 
     public void open(String debugName) {
         isDebugNameOpen.put(debugName, Boolean.TRUE);
-        if(logFoldingRegionByDebugNames.containsKey(debugName)) {
-            for(FoldRegion foldRegion : logFoldingRegionByDebugNames.get(debugName)) {
+        if (logFoldingRegionByDebugNames.containsKey(debugName)) {
+            for (FoldRegion foldRegion : logFoldingRegionByDebugNames.get(debugName)) {
                 foldRegion.setExpanded(true);
             }
         }

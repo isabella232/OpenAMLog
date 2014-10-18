@@ -17,7 +17,7 @@ import org.forgerock.openam.logreader.psi.OpenAMLogFile;
 import org.forgerock.openam.logreader.psi.OpenAMLogTypes;
 import org.jetbrains.annotations.NotNull;
 
-public class OpenAMLogParserDefinition implements ParserDefinition{
+public class OpenAMLogParserDefinition implements ParserDefinition {
     public static final TokenSet WHITE_SPACES = TokenSet.create(TokenType.WHITE_SPACE);
     public static final TokenSet COMMENTS = TokenSet.create(OpenAMLogTypes.COMMENT);
 

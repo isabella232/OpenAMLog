@@ -33,7 +33,6 @@ import com.intellij.openapi.util.WriteExternalException;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowAnchor;
 import com.intellij.openapi.wm.ToolWindowManager;
-
 import com.intellij.util.messages.MessageBusConnection;
 import org.forgerock.openam.logreader.icons.OpenAMLogIcons;
 import org.forgerock.openam.logreader.viewer.LogPropertiesPanel;
@@ -41,8 +40,7 @@ import org.forgerock.openam.logreader.viewer.OpenAMLogViewerConstants;
 import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 
-public class OpenAMLogProjectComponent implements ProjectComponent, JDOMExternalizable
-{
+public class OpenAMLogProjectComponent implements ProjectComponent, JDOMExternalizable {
 
     private static final Logger LOG = Logger.getInstance("idea.plugin.psiviewer.controller.project.PsiViewerProjectComponent");
 
@@ -51,37 +49,30 @@ public class OpenAMLogProjectComponent implements ProjectComponent, JDOMExternal
     private LogPropertiesPanel viewerPanel;
     private ProjectListener projectListener;
 
-    public OpenAMLogProjectComponent(Project project)
-    {
+    public OpenAMLogProjectComponent(Project project) {
         this.project = project;
     }
 
-    public void projectOpened()
-    {
+    public void projectOpened() {
         initToolWindow();
     }
 
-    public void projectClosed()
-    {
+    public void projectClosed() {
         unregisterToolWindow();
     }
 
-    public void initComponent()
-    {
+    public void initComponent() {
     }
 
-    public void disposeComponent()
-    {
+    public void disposeComponent() {
     }
 
     @NotNull
-    public String getComponentName()
-    {
+    public String getComponentName() {
         return OpenAMLogViewerConstants.PLUGIN_NAME + '.' + OpenAMLogViewerConstants.PROJECT_COMPONENT_NAME;
     }
 
-    public void initToolWindow()
-    {
+    public void initToolWindow() {
         viewerPanel = new LogPropertiesPanel(this);
 
         ActionManager actionManager = ActionManager.getInstance();
@@ -96,8 +87,7 @@ public class OpenAMLogProjectComponent implements ProjectComponent, JDOMExternal
     }
 
 
-    public void unregisterToolWindow()
-    {
+    public void unregisterToolWindow() {
         if (viewerPanel != null) {
             viewerPanel = null;
         }
@@ -111,52 +101,43 @@ public class OpenAMLogProjectComponent implements ProjectComponent, JDOMExternal
             ToolWindowManager.getInstance(project).unregisterToolWindow(OpenAMLogViewerConstants.ID_TOOL_WINDOW);
     }
 
-    private ToolWindow getToolWindow()
-    {
+    private ToolWindow getToolWindow() {
         ToolWindowManager toolWindowManager = ToolWindowManager.getInstance(project);
         if (isToolWindowRegistered())
             return toolWindowManager.getToolWindow(OpenAMLogViewerConstants.ID_TOOL_WINDOW);
         else
             return toolWindowManager.registerToolWindow(OpenAMLogViewerConstants.ID_TOOL_WINDOW,
-                                                        viewerPanel,
-                                                        ToolWindowAnchor.RIGHT);
+                    viewerPanel,
+                    ToolWindowAnchor.RIGHT);
     }
 
-    private boolean isToolWindowRegistered()
-    {
+    private boolean isToolWindowRegistered() {
         return ToolWindowManager.getInstance(project).getToolWindow(OpenAMLogViewerConstants.ID_TOOL_WINDOW) != null;
     }
 
-    public void readExternal(Element element) throws InvalidDataException
-    {
+    public void readExternal(Element element) throws InvalidDataException {
         DefaultJDOMExternalizer.readExternal(this, element);
     }
 
-    public void writeExternal(Element element) throws WriteExternalException
-    {
+    public void writeExternal(Element element) throws WriteExternalException {
         DefaultJDOMExternalizer.writeExternal(this, element);
     }
 
-    public LogPropertiesPanel getViewerPanel()
-    {
+    public LogPropertiesPanel getViewerPanel() {
         return viewerPanel;
     }
 
 
-    public Project getProject()
-    {
+    public Project getProject() {
         return project;
     }
 
-    public static OpenAMLogProjectComponent getInstance(Project project)
-    {
+    public static OpenAMLogProjectComponent getInstance(Project project) {
         return project.getComponent(OpenAMLogProjectComponent.class);
     }
 
-    private static void debug(String message)
-    {
-        if (LOG.isDebugEnabled())
-        {
+    private static void debug(String message) {
+        if (LOG.isDebugEnabled()) {
             LOG.debug(message);
         }
     }

@@ -1,34 +1,35 @@
 <idea-plugin version="2">
-  <id>com.forgerock.openam.logreader</id>
-  <name>OpenAM Log</name>
-  <version>0.1</version>
-  <vendor email="quentin.castel@forgerock.com" url="http://www.forgerock.org">ForgeRock</vendor>
+    <id>com.forgerock.openam.logreader</id>
+    <name>OpenAM Log</name>
+    <version>0.1</version>
+    <vendor email="quentin.castel@forgerock.com" url="http://www.forgerock.org">ForgeRock</vendor>
 
-  <description><![CDATA[
+    <description><![CDATA[
       OpenAM log reader
       ]]></description>
 
-  <change-notes><![CDATA[
+    <change-notes><![CDATA[
       <ul>
         <li>First version of the plugin</li>
       </ul>
       
       configure git
       ]]>
-  </change-notes>
+    </change-notes>
 
-  <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
-  <idea-version since-build="107.105"/>
+    <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
+    <idea-version since-build="107.105"/>
 
-  <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
-       on how to target different products -->
-  <!-- uncomment to enable plugin in all products
-  <depends>com.intellij.modules.lang</depends>
-  -->
+    <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
 
     <project-components>
         <component>
-            <implementation-class>org.forgerock.openam.logreader.viewer.project.OpenAMLogProjectComponent</implementation-class>
+            <implementation-class>org.forgerock.openam.logreader.viewer.project.OpenAMLogProjectComponent
+            </implementation-class>
             <option name="workspace" value="true"/>
         </component>
     </project-components>
@@ -39,12 +40,14 @@
 
     </actions>
 
-  <extensions defaultExtensionNs="com.intellij">
-    <!-- Add your extensions here -->
-      <fileTypeFactory implementation="org.forgerock.openam.logreader.file.OpenAMLogFileTypeFactory"/>
-      <lang.parserDefinition language="OpenAMLog" implementationClass="org.forgerock.openam.logreader.parser.OpenAMLogParserDefinition"/>
-      <lang.syntaxHighlighterFactory key="OpenAMLog" implementationClass="org.forgerock.openam.logreader.highlight.OpenAMLogSyntaxHighlighterFactory"/>
-      <colorSettingsPage implementation="org.forgerock.openam.logreader.highlight.OpenAMLogColorSettingsPage"/>
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <fileTypeFactory implementation="org.forgerock.openam.logreader.file.OpenAMLogFileTypeFactory"/>
+        <lang.parserDefinition language="OpenAMLog"
+                               implementationClass="org.forgerock.openam.logreader.parser.OpenAMLogParserDefinition"/>
+        <lang.syntaxHighlighterFactory key="OpenAMLog"
+                                       implementationClass="org.forgerock.openam.logreader.highlight.OpenAMLogSyntaxHighlighterFactory"/>
+        <colorSettingsPage implementation="org.forgerock.openam.logreader.highlight.OpenAMLogColorSettingsPage"/>
 
-  </extensions>
+    </extensions>
 </idea-plugin>

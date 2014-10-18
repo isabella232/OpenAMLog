@@ -1,12 +1,7 @@
 package org.forgerock.openam.logreader.psi;
 
 import com.intellij.lang.ASTNode;
-import com.intellij.navigation.ItemPresentation;
-import com.intellij.psi.PsiElement;
 
-import org.jetbrains.annotations.Nullable;
-
-import javax.swing.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

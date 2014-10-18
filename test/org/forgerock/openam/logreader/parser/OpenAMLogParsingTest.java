@@ -1,7 +1,6 @@
 package org.forgerock.openam.logreader.parser;
 
 import com.intellij.testFramework.ParsingTestCase;
-import org.forgerock.openam.logreader.parser.OpenAMLogParserDefinition;
 
 public class OpenAMLogParsingTest extends ParsingTestCase {
     public OpenAMLogParsingTest() {

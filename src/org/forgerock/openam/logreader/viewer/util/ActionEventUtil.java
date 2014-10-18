@@ -12,30 +12,24 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 
-public class ActionEventUtil
-{
-    public static Project getProject(AnActionEvent event)
-    {
+public class ActionEventUtil {
+    public static Project getProject(AnActionEvent event) {
         return PlatformDataKeys.PROJECT.getData(event.getDataContext());
     }
 
-    public static PsiElement getPsiElement(AnActionEvent event)
-    {
+    public static PsiElement getPsiElement(AnActionEvent event) {
         return LangDataKeys.PSI_ELEMENT.getData(event.getDataContext());
     }
 
-    public static Editor getEditor(AnActionEvent event)
-    {
+    public static Editor getEditor(AnActionEvent event) {
         return PlatformDataKeys.EDITOR.getData(event.getDataContext());
     }
 
-    public static PsiFile getPsiFile(AnActionEvent event)
-    {
+    public static PsiFile getPsiFile(AnActionEvent event) {
         return LangDataKeys.PSI_FILE.getData(event.getDataContext());
     }
 
-    public static VirtualFile getVirtualFile(AnActionEvent event)
-    {
+    public static VirtualFile getVirtualFile(AnActionEvent event) {
         return PlatformDataKeys.VIRTUAL_FILE.getData(event.getDataContext());
     }
 }
