@@ -26,17 +26,18 @@
   <depends>com.intellij.modules.lang</depends>
   -->
 
-  <application-components>
-    <!-- Add your application components here -->
-  </application-components>
+    <project-components>
+        <component>
+            <implementation-class>org.forgerock.openam.logreader.viewer.project.OpenAMLogProjectComponent</implementation-class>
+            <option name="workspace" value="true"/>
+        </component>
+    </project-components>
+    <application-components>
+    </application-components>
 
-  <project-components>
-    <!-- Add your project components here -->
-  </project-components>
+    <actions>
 
-  <actions>
-    <!-- Add your actions here -->
-  </actions>
+    </actions>
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
@@ -44,5 +45,6 @@
       <lang.parserDefinition language="OpenAMLog" implementationClass="org.forgerock.openam.logreader.OpenAMLogParserDefinition"/>
       <lang.syntaxHighlighterFactory key="OpenAMLog" implementationClass="org.forgerock.openam.logreader.OpenAMLogSyntaxHighlighterFactory"/>
       <colorSettingsPage implementation="org.forgerock.openam.logreader.OpenAMLogColorSettingsPage"/>
+
   </extensions>
 </idea-plugin>

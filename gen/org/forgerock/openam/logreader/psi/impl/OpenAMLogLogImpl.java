@@ -34,4 +34,5 @@ public class OpenAMLogLogImpl extends ASTWrapperPsiElement implements OpenAMLogL
     return findNotNullChildByClass(OpenAMLogLogtitle.class);
   }
 
+
 }

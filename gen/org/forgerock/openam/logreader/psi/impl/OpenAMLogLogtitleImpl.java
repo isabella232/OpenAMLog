@@ -1,6 +1,7 @@
 // This is a generated file. Not intended for manual editing.
 package org.forgerock.openam.logreader.psi.impl;
 
+import java.util.Date;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.lang.ASTNode;
@@ -21,5 +22,17 @@ public class OpenAMLogLogtitleImpl extends ASTWrapperPsiElement implements OpenA
     if (visitor instanceof OpenAMLogVisitor) ((OpenAMLogVisitor)visitor).visitLogtitle(this);
     else super.accept(visitor);
   }
+
+    public String getDebugName() {
+        return OpenAMLogPsiImplUtil.getDebugName(this);
+    }
+
+    public Date getDate() {
+        return OpenAMLogPsiImplUtil.getDate(this);
+    }
+
+    public String getThreadName() {
+        return OpenAMLogPsiImplUtil.getThreadName(this);
+    }
 
 }

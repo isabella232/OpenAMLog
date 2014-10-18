@@ -85,11 +85,11 @@ AuthUtil:getAuthContext:sessionUpgrade is.. .: false
 amAuthUtils:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
 AuthUtil:getAuthContext:ForceAuth is.. .: false
 amAuthClientUtils:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
-getOrganizationDN : orgParam... :/MediaID_SAML_SP
+getOrganizationDN : orgParam... :/ForgeRock
 amAuthClientUtils:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
-getOrganizationDN : orgDN ... :o=mediaid_saml_sp,ou=services,dc=config,dc=be
+getOrganizationDN : orgDN ... :o=Forgerock_saml_sp,ou=services,dc=config,dc=be
 amAuth:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
-createAuthContext: userOrg is : o=mediaid_saml_sp,ou=services,dc=config,dc=be
+createAuthContext: userOrg is : o=Forgerock_saml_sp,ou=services,dc=config,dc=be
 amAuth:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
 AuthUtil::getAuthContext::Creating new AuthContextLocal & LoginState
 amAuthContextLocal:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
@@ -105,7 +105,7 @@ requestType : true
 amAuth:09/17/2014 07:16:41:123 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
 sid : null
 amAuth:09/17/2014 07:16:41:123 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
-orgName passed: /MediaID_SAML_SP
+orgName passed: /ForgeRock
 amAuth:09/17/2014 07:16:41:123 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
 LoginState: createSession: Creating new session: 
 amAuth:09/17/2014 07:16:41:123 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
@@ -454,4 +454,3 @@ amAuth:09/17/2014 07:16:41:127 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
 Module name is .. Federation
 amAuth:09/17/2014 07:16:41:127 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
 successModuleSet is : [Federation]
-amJAAS:09/17/2014 07:16:41:127 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]

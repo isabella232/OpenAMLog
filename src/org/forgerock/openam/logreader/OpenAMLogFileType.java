@@ -28,7 +28,7 @@ public class OpenAMLogFileType extends LanguageFileType {
     @NotNull
     @Override
     public String getDefaultExtension() {
-        return "lfr";
+        return "amlog";
     }
 
     @Nullable

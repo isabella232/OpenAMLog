@@ -7,6 +7,6 @@ import org.jetbrains.annotations.NotNull;
 public class OpenAMLogFileTypeFactory extends FileTypeFactory{
     @Override
     public void createFileTypes(@NotNull FileTypeConsumer fileTypeConsumer) {
-        fileTypeConsumer.consume(OpenAMLogFileType.INSTANCE, "lfr");
+        fileTypeConsumer.consume(OpenAMLogFileType.INSTANCE, "amlog");
     }
 }
