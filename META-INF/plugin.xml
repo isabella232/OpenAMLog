@@ -25,12 +25,20 @@
       ]]></description>
 
     <change-notes><![CDATA[
-      <ul>
-        <li>First version of the plugin</li>
-      </ul>
-      
-      configure git
-      ]]>
+
+    <h2>Editor interpretation</h2>
+    <ul>
+        <li>Language support</li>
+        <li>Coloring text</li>
+        <li>Modify color</li>
+        <li>PSI parsing, compatible with plugins based on PSI elements</li>
+    </ul>
+    <h2>Tool window</h2>
+    <ul>
+        <li>Log properties sum up</li>
+        <li>Debug names used list</li>
+    </ul>
+            ]]>
     </change-notes>
 
     <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
@@ -49,21 +57,18 @@
             <option name="workspace" value="true"/>
         </component>
     </project-components>
-    <application-components>
-    </application-components>
 
-    <actions>
+    <application-components></application-components>
 
-    </actions>
+    <actions></actions>
 
     <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
         <fileTypeFactory implementation="org.forgerock.openam.logreader.file.OpenAMLogFileTypeFactory"/>
         <lang.parserDefinition language="OpenAMLog"
                                implementationClass="org.forgerock.openam.logreader.parser.OpenAMLogParserDefinition"/>
         <lang.syntaxHighlighterFactory key="OpenAMLog"
                                        implementationClass="org.forgerock.openam.logreader.highlight.OpenAMLogSyntaxHighlighterFactory"/>
         <colorSettingsPage implementation="org.forgerock.openam.logreader.highlight.OpenAMLogColorSettingsPage"/>
-
     </extensions>
+
 </idea-plugin>
