@@ -1,0 +1,456 @@
+amAuth:09/17/2014 07:15:06:802 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]
+postProcessOnSuccess 
+amAuth:09/17/2014 07:15:06:802 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]
+postLoginClassSet = [be.mediaid.postauthentication.RegistrationPAP]
+amAuth:09/17/2014 07:15:06:802 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]
+setPostLoginInstances : be.mediaid.postauthentication.RegistrationPAP
+amAuth:09/17/2014 07:15:06:802 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]
+setPostLoginInstances : 1
+amAuth:09/17/2014 07:15:06:802 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]
+postLoginProcess Class Name is : be.mediaid.postauthentication.RegistrationPAP
+AuthAgents:09/17/2014 07:15:06:832 AM CEST: Thread[entitlementThreadPool3,5,main]
+AuthenticatedSharedAgents:isMember:idType = IdType: user, userDN = addNoSign@brandid.be
+AuthAgents:09/17/2014 07:15:06:832 AM CEST: Thread[entitlementThreadPool3,5,main]
+AuthenticatedSharedAgents.isMember():userDN is null or invalid IdType addNoSign@brandid.beIdType :IdType: user
+AuthAgents:09/17/2014 07:15:06:832 AM CEST: Thread[entitlementThreadPool3,5,main]
+AuthenticatedSharedAgents.isMember():returning false
+AuthAgents:09/17/2014 07:15:06:855 AM CEST: Thread[entitlementThreadPool6,5,main]
+AuthenticatedSharedAgents:isMember:idType = IdType: user, userDN = addNoSign@brandid.be
+AuthAgents:09/17/2014 07:15:06:855 AM CEST: Thread[entitlementThreadPool6,5,main]
+AuthenticatedSharedAgents.isMember():userDN is null or invalid IdType addNoSign@brandid.beIdType :IdType: user
+AuthAgents:09/17/2014 07:15:06:855 AM CEST: Thread[entitlementThreadPool6,5,main]
+AuthenticatedSharedAgents.isMember():returning false
+AuthAgents:09/17/2014 07:15:06:879 AM CEST: Thread[entitlementThreadPool9,5,main]
+AuthenticatedSharedAgents:isMember:idType = IdType: user, userDN = addNoSign@brandid.be
+AuthAgents:09/17/2014 07:15:06:879 AM CEST: Thread[entitlementThreadPool9,5,main]
+AuthenticatedSharedAgents.isMember():userDN is null or invalid IdType addNoSign@brandid.beIdType :IdType: user
+AuthAgents:09/17/2014 07:15:06:879 AM CEST: Thread[entitlementThreadPool9,5,main]
+AuthenticatedSharedAgents.isMember():returning false
+amAuth:09/17/2014 07:15:06:882 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]
+getStatus : status is... : 3
+amAuthContextLocal:09/17/2014 07:15:06:882 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]
+AuthContextLocal::submitRequirements end
+amAuthContextLocal:09/17/2014 07:15:06:882 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]
+Status at the end of submitRequirements() : success
+amAuthContextLocal:09/17/2014 07:15:06:882 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]
+AuthContextLocal::getStatus()
+amAuth:09/17/2014 07:15:06:882 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]
+getStatus : status is... : 3
+amAuthContextLocal:09/17/2014 07:15:06:882 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]
+AuthContextLocal:: Status : success
+amAuthContextLocal:09/17/2014 07:15:06:882 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]
+AuthContextLocal::getStatus()
+amAuth:09/17/2014 07:15:06:882 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]
+getStatus : status is... : 3
+amAuthContextLocal:09/17/2014 07:15:06:882 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]
+AuthContextLocal:: Status : success
+amAuthContextLocal:09/17/2014 07:15:06:882 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]
+AuthContextLocal::getStatus()
+amAuth:09/17/2014 07:15:06:882 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]
+getStatus : status is... : 3
+amAuthContextLocal:09/17/2014 07:15:06:882 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]
+AuthContextLocal:: Status : success
+amAuthClientUtils:09/17/2014 07:16:04:384 AM CEST: Thread[http-bio-8443-exec-6,5,main]
+AuthClientUtils.getlbCookieName()loadBalanceCookieName is:amlbcookie
+amAuthClientUtils:09/17/2014 07:16:04:384 AM CEST: Thread[http-bio-8443-exec-6,5,main]
+CookieDomains : 
+amAuthClientUtils:09/17/2014 07:16:04:384 AM CEST: Thread[http-bio-8443-exec-6,5,main]
+  .tst.media-id.be
+amAuthClientUtils:09/17/2014 07:16:04:384 AM CEST: Thread[http-bio-8443-exec-6,5,main]
+cookieDomain : .tst.media-id.be
+amAuthClientUtils:09/17/2014 07:16:04:384 AM CEST: Thread[http-bio-8443-exec-6,5,main]
+AuthClientUtils.getlbCookieName()loadBalanceCookieName is:amlbcookie
+amAuthClientUtils:09/17/2014 07:16:04:384 AM CEST: Thread[http-bio-8443-exec-6,5,main]
+pCookie is.. :javax.servlet.http.Cookie@4ec4d36d
+amAuthContext:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AuthContext.login : runLogin against http://sso.tst.media-id.be:8080/auth/authservice
+amAuthContext:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+in setLocalFlag(), url : http://sso.tst.media-id.be:8080
+amAuthContext:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AuthContext.localAuthServiceID : http://sso.tst.media-id.be:8080
+amAuthUtils:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+orgName : /MediaID_SAML_SP
+amAuthUtils:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+sessionID is 0
+amAuthUtils:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+sessionID is 1
+amAuthUtils:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+isLogout : false
+amAuthUtils:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AuthUtil:getAuthContext:sid is.. .: null
+amAuthUtils:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AuthUtil:getAuthContext:authContext is.. .: null
+amAuthUtils:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AuthUtil:getAuthContext:sessionUpgrade is.. .: false
+amAuthUtils:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AuthUtil:getAuthContext:ForceAuth is.. .: false
+amAuthClientUtils:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getOrganizationDN : orgParam... :/ForgeRock
+amAuthClientUtils:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getOrganizationDN : orgDN ... :o=Forgerock_saml_sp,ou=services,dc=config,dc=be
+amAuth:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+createAuthContext: userOrg is : o=Forgerock_saml_sp,ou=services,dc=config,dc=be
+amAuth:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AuthUtil::getAuthContext::Creating new AuthContextLocal & LoginState
+amAuthContextLocal:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AuthContextLocal() constructor called
+amAuth:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AMLoginContext:initialThread name is... :ajp-bio-8009-exec-96
+amAuthContextLocal:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AMLoginContext object is... com.sun.identity.authentication.service.AMLoginContext@450295c9
+amAuthContextLocal:09/17/2014 07:16:41:122 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AuthContextLocal::reset() called
+amAuth:09/17/2014 07:16:41:123 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+requestType : true
+amAuth:09/17/2014 07:16:41:123 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+sid : null
+amAuth:09/17/2014 07:16:41:123 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+orgName passed: /ForgeRock
+amAuth:09/17/2014 07:16:41:123 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+LoginState: createSession: Creating new session: 
+amAuth:09/17/2014 07:16:41:123 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Save authContext in InternalSession
+amAuth:09/17/2014 07:16:41:123 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+userOrg is : o=mediaid_saml_sp,ou=services,dc=config,dc=be
+amAuth:09/17/2014 07:16:41:123 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+rootSuffix is : dc=config,dc=be
+amAuth:09/17/2014 07:16:41:123 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+rootSuffixDN is : dc=config,dc=be
+amAuth:09/17/2014 07:16:41:123 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+userOrgDN is : o=mediaid_saml_sp,ou=services,dc=config,dc=be
+amAuth:09/17/2014 07:16:41:123 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Returning OrgDN is : o=mediaid_saml_sp,ou=services,dc=config,dc=be
+amAuth:09/17/2014 07:16:41:123 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+LoginState:createSession: New session/sid=AQIC5wM2LY4Sfcw-kHHWzibuQcouOFPEuxQl5y96GgUVi90.*AAJTSQACMDIAAlNLABMzNDM5NTU2MjUwNTQ5MTUxMjE4AAJTMQACMDE.*
+amAuth:09/17/2014 07:16:41:123 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+LoginState:New session: ac=com.sun.identity.authentication.server.AuthContextLocal@2cb7e284
+amAuthConfig:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Registered module names: [SAE, LDAP, Application, WSSAuthModule, Federation, OATH, HOTP, DataStore]
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+URL is : mediaid.is4u.be/interface/success.html
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+defaultURL : mediaid.is4u.be/interface/success.html
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+tempDefaultURL : mediaid.is4u.be/interface/success.html
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+URL is : 
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+defaultURL : null
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+tempDefaultURL : null
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Getting Org Profile: o=mediaid_saml_sp,ou=services,dc=config,dc=be
+locale->en_US
+charset->UTF-8
+dynamicProfileCreation->true
+defaultAuthLevel->0
+orgSucessLoginURLSet->[mediaid.is4u.be/interface/success.html]
+orgFailureLoginURLSet->[]
+clientSuccessLoginURL ->null
+defaultSuccessLoginURL ->mediaid.is4u.be/interface/success.html
+orgPostLoginClassSet ->[be.mediaid.postauthentication.RegistrationPAP]
+orgAuthConfig ->ldapService
+orgAdminAuthConfig ->ldapService
+clientFailureLoginURL ->null
+defaultFailureLoginURL ->null
+enableModuleBasedAuth ->true
+loginFailureLockoutMode->false
+loginFailureLockoutStoreInDS->true
+loginFailureLockoutCount->5
+loginFailureLockoutTime->18000000
+loginLockoutUserWarning->4
+loginLockoutNotification->null
+invalidAttemptsDataAttrName->null
+persistentCookieMode->false
+zeroPageLoginEnabled->false
+identityTypes->[user, agent]
+aliasAttrNames ->[uid]
+amAuthClientUtils:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+queryOrg is :/MediaID_SAML_SP
+amAuthUtils:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+query org is .. : /MediaID_SAML_SP
+amAuthContextLocal:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AuthContextLocal::login() called with IndexType : module_instance & Indexname : Federation & pCookieMode : false & locale : null & envMap : null
+amAuthContextLocal:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+loginParamsMap : {indexType=module_instance, principal=null, subject=null, locale=null, pCookieMode=false, indexName=Federation, password=null}
+amAuthContextLocal:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+calling AMLoginContext::exceuteLogin : 
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+sid .. AQIC5wM2LY4Sfcw-kHHWzibuQcouOFPEuxQl5y96GgUVi90.*AAJTSQACMDIAAlNLABMzNDM5NTU2MjUwNTQ5MTUxMjE4AAJTMQACMDE.*
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+login state is .. : com.sun.identity.authentication.service.LoginState@5c785f0b
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+LoginState : com.sun.identity.authentication.service.LoginState@5c785f0b
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+loginParamsMap is.. :{indexType=module_instance, principal=null, subject=null, locale=null, pCookieMode=false, indexName=Federation, password=null}
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+indexType = module_instance
+indexName = Federation
+amAuthClientUtils:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getDefaultClientType, ClientType = genericHTML
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+orgDN : o=mediaid_saml_sp,ou=services,dc=config,dc=be
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+clientType : genericHTML
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+indexType is module
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Creating login context object
+
+ orgDN : o=mediaid_saml_sp,ou=services,dc=config,dc=be
+ configName : MODULE=Federation;ORGANIZATION=o=mediaid_saml_sp,ou=services,dc=config,dc=be;CLIENT=genericHTML
+amAuthConfig:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+retrieving configuration: MODULE=Federation;ORGANIZATION=o=mediaid_saml_sp,ou=services,dc=config,dc=be;CLIENT=genericHTML
+amAuthConfig:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+cached configs {MODULE=Application;ORGANIZATION=dc=config,dc=be;CLIENT=genericHTML=[Ljavax.security.auth.login.AppConfigurationEntry;@588a137c, ORGANIZATION=dc=config,dc=be;CLIENT=html=[Ljavax.security.auth.login.AppConfigurationEntry;@171c50d4, SERVICE=persistent_auth;ORGANIZATION=o=mediaid_saml,ou=services,dc=config,dc=be;CLIENT=genericHTML=[Ljavax.security.auth.login.AppConfigurationEntry;@7e48c33e, ORGANIZATION=o=mediaid_oauth,ou=services,dc=config,dc=be;CLIENT=html=[Ljavax.security.auth.login.AppConfigurationEntry;@7798ce82, MODULE=Federation;ORGANIZATION=o=mediaid_saml_sp,ou=services,dc=config,dc=be;CLIENT=genericHTML=[Ljavax.security.auth.login.AppConfigurationEntry;@2e46638f, MODULE=Application;ORGANIZATION=o=mid_wsbrand,ou=services,dc=config,dc=be;CLIENT=genericHTML=[Ljavax.security.auth.login.AppConfigurationEntry;@27b3be01}
+amAuthConfig:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+indexType = 5
+indexName=Federation
+orgDN=o=mediaid_saml_sp,ou=services,dc=config,dc=be
+clientType=genericHTML
+amAuthConfig:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getAppConfigurationEntry[], found MODULE=Federation;ORGANIZATION=o=mediaid_saml_sp,ou=services,dc=config,dc=be;CLIENT=genericHTML
+amAuthConfig:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+indexType = 5
+indexName=Federation
+orgDN=o=mediaid_saml_sp,ou=services,dc=config,dc=be
+clientType=genericHTML
+amAuthConfig:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AMConfiguration.cloneConfigurationEntry, orgDN=o=mediaid_saml_sp,ou=services,dc=config,dc=be, entries=[Ljavax.security.auth.login.AppConfigurationEntry;@2e46638f
+amAuthUtils:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+config entry: com.sun.identity.authentication.modules.federation.Federation
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Using non pure jaas mode.
+fmAuthFederation:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Federation()
+amCallback:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+callback handler method
+amCallback:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+LoginState Callbacks
+amAuthClientUtils:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+rootOrgName is : config
+amAuthClientUtils:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+clientDetectionEnabled = false
+amAuthClientUtils:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getDefaultClientType, ClientType = genericHTML
+amAuthClientUtils:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+clientDetectionEnabled = false
+amAuthClientUtils:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+FilePath is.. :/html
+amAuthClientUtils:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getOrgFilePath : orgDN is: o=mediaid_saml_sp,ou=services,dc=config,dc=be
+amAuthClientUtils:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+remOrgDN is : ou=services,dc=config,dc=be
+amAuthClientUtils:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+remOrgDN is : dc=config,dc=be
+amAuthClientUtils:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getOrgFilePath: orgPath is : /services/mediaid_saml_sp
+amAuthClientUtils:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Calling ResourceLookup: filename = Federation.xml, defaultOrg = config, locale = en_US, filePath = /html, orgPath = /services/mediaid_saml_sp
+amAuthClientUtils:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+clientDetectionEnabled = false
+amAuthClientUtils:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getDefaultClientType, ClientType = genericHTML
+amAuthClientUtils:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getDefaultClientType, ClientType = genericHTML
+amAuthClientUtils:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Resource is.. /config/auth/default_en/Federation.xml
+amAuthClientUtils:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+File/Resource is : /config/auth/default_en/Federation.xml
+amLoginModule:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AMLoginModule resbundle locale=en_US
+amLoginModule:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Login, class = com.sun.identity.authentication.modules.federation.Federation, module=Federation, file=/config/auth/default_en/Federation.xml
+amLoginModule:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AMLoginModuleiplanet-am-auth-shared-state-behavior-pattern is set to tryFirstPass
+fmAuthFederation:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+in initialize...
+fmAuthFederation:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+fmAuthFederation Authentication resource bundle locale=en_US
+amAuth:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+spi authLevel :0
+amAuth:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+module configuration authLevel :0
+amAuth:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+levelSet :false
+amLoginModule:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+This module is not done yet. CurrentState: 1
+amCallback:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+callback handler method
+amAuth:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Setting page timeout :60
+amAuth:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+setting Last Callback Sent :1410931001125
+amCallback:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Set callbacks, throwing java.lang.Error.
+amJAAS:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+LoginContext.invoke(): Handling expected java.lang.Error
+amAuth:09/17/2014 07:16:41:125 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Caught java.lang.Error returned from DSAMEHandler
+java.lang.Error: return from DSAMECallback
+	at com.sun.identity.authentication.service.DSAMECallbackHandler.handle(DSAMECallbackHandler.java:141)
+	at com.sun.identity.authentication.modules.federation.Federation.process(Federation.java:127)
+	at com.sun.identity.authentication.spi.AMLoginModule.wrapProcess(AMLoginModule.java:1000)
+	at com.sun.identity.authentication.spi.AMLoginModule.login(AMLoginModule.java:1066)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.sun.identity.authentication.jaas.LoginContext.invoke(LoginContext.java:210)
+	at com.sun.identity.authentication.jaas.LoginContext.login(LoginContext.java:123)
+	at com.sun.identity.authentication.service.AMLoginContext.runLogin(AMLoginContext.java:557)
+	at com.sun.identity.authentication.service.AMLoginContext.executeLogin(AMLoginContext.java:515)
+	at com.sun.identity.authentication.server.AuthContextLocal.login(AuthContextLocal.java:544)
+	at com.sun.identity.authentication.server.AuthContextLocal.login(AuthContextLocal.java:419)
+	at com.sun.identity.authentication.AuthContext.runLogin(AuthContext.java:777)
+	at com.sun.identity.authentication.AuthContext.login(AuthContext.java:671)
+	at com.sun.identity.authentication.AuthContext.login(AuthContext.java:614)
+	at com.sun.identity.authentication.AuthContext.login(AuthContext.java:417)
+	at com.sun.identity.plugin.session.impl.FMSessionProvider.createSession(FMSessionProvider.java:223)
+	at com.sun.identity.saml2.profile.SPACSUtils.processResponse(SPACSUtils.java:1313)
+	at org.apache.jsp.saml2.jsp.spAssertionConsumer_jsp._jspService(spAssertionConsumer_jsp.java:233)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:432)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:390)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:334)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.forgerock.openam.validation.ResponseValidationFilter.doFilter(ResponseValidationFilter.java:44)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at com.sun.identity.setup.AMSetupFilter.doFilter(AMSetupFilter.java:100)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:611)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:99)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.ajp.AjpProcessor.process(AjpProcessor.java:200)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:589)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AMLoginContext:Thread started... returning.
+amAuthContextLocal:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+after AMLoginContext::exceuteLogin : 
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getStatus : status is... : 2
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getStatus : status is... : 2
+amAuthContextLocal:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Status at the end of login() : in_progress
+amAuthContextLocal:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AuthContextLocal::getStatus()
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getStatus : status is... : 2
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getStatus : status is... : 2
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getStatus : status is... : 2
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getStatus : status is... : 2
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getStatus : status is... : 2
+amAuthContextLocal:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AuthContextLocal:: Status : in_progress
+amAuthContextLocal:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AuthContextLocal::hasMoreRequirements()
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getStatus : status is... : 2
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getStatus : status is... : 2
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Recd Callback in amlc.getRequiredInfo : javax.security.auth.callback.NameCallback@62a7fa9a
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Recd Callback in amlc.getRequiredInfo : javax.security.auth.callback.NameCallback@235c710
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Recd Callback in amlc.getRequiredInfo : javax.security.auth.callback.NameCallback@189fec92
+amAuthContextLocal:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+In getCallbacks() callback : javax.security.auth.callback.NameCallback@62a7fa9a
+amAuthContextLocal:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+In getCallbacks() callback : javax.security.auth.callback.NameCallback@235c710
+amAuthContextLocal:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+In getCallbacks() callback : javax.security.auth.callback.NameCallback@189fec92
+amAuthContextLocal:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AuthContextLocal::getStatus()
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getStatus : status is... : 2
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getStatus : status is... : 2
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getStatus : status is... : 2
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getStatus : status is... : 2
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getStatus : status is... : 2
+amAuthContextLocal:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AuthContextLocal:: Status : in_progress
+amAuthContextLocal:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AuthContextLocal::getRequirements()
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getStatus : status is... : 2
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getStatus : status is... : 2
+amAuthContextLocal:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+In getCallbacks() callback : javax.security.auth.callback.NameCallback@62a7fa9a
+amAuthContextLocal:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+In getCallbacks() callback : javax.security.auth.callback.NameCallback@235c710
+amAuthContextLocal:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+In getCallbacks() callback : javax.security.auth.callback.NameCallback@189fec92
+amAuthContext:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+submitRequirements with Callbacks : [Ljavax.security.auth.callback.Callback;@2b6471df
+amAuthContextLocal:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AuthContextLocal::getStatus()
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getStatus : status is... : 2
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getStatus : status is... : 2
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getStatus : status is... : 2
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getStatus : status is... : 2
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+getStatus : status is... : 2
+amAuthContextLocal:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AuthContextLocal:: Status : in_progress
+amAuthContextLocal:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+AuthContextLocal::submitRequirements()
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+submit required info... :javax.security.auth.callback.NameCallback@62a7fa9a
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Retunring from submitRequiredInfo
+amLoginModule:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+This module is not done yet. CurrentState: 1
+amCallback:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+callback handler method
+amCallback:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+DSAMEHandler: found submitted callbacks !
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Returning Last Callback Sent :1410931001125
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Returning page timeout :60
+amCallback:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+DSAMECAllbackhandler...[Ljavax.security.auth.callback.Callback;@4f6ffdba
+fmAuthFederation:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Module is successful
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+spi authLevel :0
+amAuth:09/17/2014 07:16:41:126 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+module configuration authLevel :0
+amAuth:09/17/2014 07:16:41:127 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+levelSet :false
+amLoginModule:09/17/2014 07:16:41:127 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+SETTING Module name.... :Federation
+amAuth:09/17/2014 07:16:41:127 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Module name is .. Federation
+amAuth:09/17/2014 07:16:41:127 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+successModuleSet is : [Federation]

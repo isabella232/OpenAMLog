@@ -1,0 +1,41 @@
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+defaultURL : mediaid.is4u.be/interface/success.html
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+tempDefaultURL : mediaid.is4u.be/interface/success.html
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+URL is : 
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+defaultURL : null
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+tempDefaultURL : null
+amAuth:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+Getting Org Profile: o=mediaid_saml_sp,ou=services,dc=config,dc=be
+locale->en_US
+charset->UTF-8
+dynamicProfileCreation->true
+defaultAuthLevel->0
+orgSucessLoginURLSet->[mediaid.is4u.be/interface/success.html]
+orgFailureLoginURLSet->[]
+clientSuccessLoginURL ->null
+defaultSuccessLoginURL ->mediaid.is4u.be/interface/success.html
+orgPostLoginClassSet ->[be.mediaid.postauthentication.RegistrationPAP]
+orgAuthConfig ->ldapService
+orgAdminAuthConfig ->ldapService
+clientFailureLoginURL ->null
+defaultFailureLoginURL ->null
+enableModuleBasedAuth ->true
+loginFailureLockoutMode->false
+loginFailureLockoutStoreInDS->true
+loginFailureLockoutCount->5
+loginFailureLockoutTime->18000000
+loginLockoutUserWarning->4
+loginLockoutNotification->null
+invalidAttemptsDataAttrName->null
+persistentCookieMode->false
+zeroPageLoginEnabled->false
+identityTypes->[user, agent]
+aliasAttrNames ->[uid]
+amAuthClientUtils:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+queryOrg is :/MediaID_SAML_SP
+amAuthUtils:09/17/2014 07:16:41:124 AM CEST: Thread[ajp-bio-8009-exec-96,5,main]
+query org is .. : /MediaID_SAML_SP

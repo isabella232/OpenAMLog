@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>com.forgerock.openam.logreader</id>
   <name>OpenAM Log</name>
-  <version>1.0</version>
+  <version>0.1</version>
   <vendor email="quentin.castel@forgerock.com" url="http://www.forgerock.org">ForgeRock</vendor>
 
   <description><![CDATA[
@@ -12,6 +12,8 @@
       <ul>
         <li>First version of the plugin</li>
       </ul>
+      
+      configure git
       ]]>
   </change-notes>
 
@@ -24,22 +26,25 @@
   <depends>com.intellij.modules.lang</depends>
   -->
 
-  <application-components>
-    <!-- Add your application components here -->
-  </application-components>
+    <project-components>
+        <component>
+            <implementation-class>org.forgerock.openam.logreader.viewer.project.OpenAMLogProjectComponent</implementation-class>
+            <option name="workspace" value="true"/>
+        </component>
+    </project-components>
+    <application-components>
+    </application-components>
 
-  <project-components>
-    <!-- Add your project components here -->
-  </project-components>
+    <actions>
 
-  <actions>
-    <!-- Add your actions here -->
-  </actions>
+    </actions>
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
-      <fileTypeFactory implementation="com.simpleplugin.OpenAMLogFileTypeFactory"/>
-      <lang.parserDefinition language="Simple" implementationClass="com.simpleplugin.SimpleParserDefinition"/>
-      <lang.syntaxHighlighterFactory key="Simple" implementationClass="com.simpleplugin.SimpleSyntaxHighlighterFactory"/>
+      <fileTypeFactory implementation="org.forgerock.openam.logreader.OpenAMLogFileTypeFactory"/>
+      <lang.parserDefinition language="OpenAMLog" implementationClass="org.forgerock.openam.logreader.OpenAMLogParserDefinition"/>
+      <lang.syntaxHighlighterFactory key="OpenAMLog" implementationClass="org.forgerock.openam.logreader.OpenAMLogSyntaxHighlighterFactory"/>
+      <colorSettingsPage implementation="org.forgerock.openam.logreader.OpenAMLogColorSettingsPage"/>
+
   </extensions>
 </idea-plugin>
