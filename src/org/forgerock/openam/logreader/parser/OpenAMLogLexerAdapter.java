@@ -1,4 +1,4 @@
-package org.forgerock.openam.logreader;
+package org.forgerock.openam.logreader.parser;
 
 import com.intellij.lexer.FlexAdapter;
 

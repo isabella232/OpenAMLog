@@ -3,7 +3,7 @@ package org.forgerock.openam.logreader.viewer;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.ui.components.JBScrollPane;
-import org.forgerock.openam.logreader.OpenAMLogUtil;
+import org.forgerock.openam.logreader.util.OpenAMLogUtil;
 import org.forgerock.openam.logreader.psi.OpenAMLogFile;
 import org.forgerock.openam.logreader.psi.OpenAMLogPsiImplUtil;
 import org.forgerock.openam.logreader.viewer.model.DebugNameListModel;

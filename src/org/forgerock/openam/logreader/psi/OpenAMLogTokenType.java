@@ -1,7 +1,7 @@
 package org.forgerock.openam.logreader.psi;
 
 import com.intellij.psi.tree.IElementType;
-import org.forgerock.openam.logreader.OpenAMLogLanguage;
+import org.forgerock.openam.logreader.language.OpenAMLogLanguage;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 

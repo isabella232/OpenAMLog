@@ -1,4 +1,4 @@
-package org.forgerock.openam.logreader;
+package org.forgerock.openam.logreader.highlight;
 
 import com.intellij.openapi.fileTypes.SyntaxHighlighter;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory;

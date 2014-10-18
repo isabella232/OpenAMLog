@@ -1,6 +1,8 @@
-package org.forgerock.openam.logreader;
+package org.forgerock.openam.logreader.file;
 
 import com.intellij.openapi.fileTypes.LanguageFileType;
+import org.forgerock.openam.logreader.icons.OpenAMLogIcons;
+import org.forgerock.openam.logreader.language.OpenAMLogLanguage;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

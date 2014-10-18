@@ -41,10 +41,10 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
-      <fileTypeFactory implementation="org.forgerock.openam.logreader.OpenAMLogFileTypeFactory"/>
-      <lang.parserDefinition language="OpenAMLog" implementationClass="org.forgerock.openam.logreader.OpenAMLogParserDefinition"/>
-      <lang.syntaxHighlighterFactory key="OpenAMLog" implementationClass="org.forgerock.openam.logreader.OpenAMLogSyntaxHighlighterFactory"/>
-      <colorSettingsPage implementation="org.forgerock.openam.logreader.OpenAMLogColorSettingsPage"/>
+      <fileTypeFactory implementation="org.forgerock.openam.logreader.file.OpenAMLogFileTypeFactory"/>
+      <lang.parserDefinition language="OpenAMLog" implementationClass="org.forgerock.openam.logreader.parser.OpenAMLogParserDefinition"/>
+      <lang.syntaxHighlighterFactory key="OpenAMLog" implementationClass="org.forgerock.openam.logreader.highlight.OpenAMLogSyntaxHighlighterFactory"/>
+      <colorSettingsPage implementation="org.forgerock.openam.logreader.highlight.OpenAMLogColorSettingsPage"/>
 
   </extensions>
 </idea-plugin>

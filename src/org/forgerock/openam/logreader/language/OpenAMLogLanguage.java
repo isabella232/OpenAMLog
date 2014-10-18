@@ -1,4 +1,4 @@
-package org.forgerock.openam.logreader;
+package org.forgerock.openam.logreader.language;
 
 import com.intellij.lang.Language;
 

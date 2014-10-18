@@ -1,4 +1,4 @@
-package org.forgerock.openam.logreader;
+package org.forgerock.openam.logreader.util;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;

@@ -1,4 +1,4 @@
-package org.forgerock.openam.logreader;
+package org.forgerock.openam.logreader.file;
 
 import com.intellij.openapi.fileTypes.FileTypeConsumer;
 import com.intellij.openapi.fileTypes.FileTypeFactory;

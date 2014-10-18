@@ -3,8 +3,8 @@ package org.forgerock.openam.logreader.psi;
 import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
-import org.forgerock.openam.logreader.OpenAMLogFileType;
-import org.forgerock.openam.logreader.OpenAMLogLanguage;
+import org.forgerock.openam.logreader.file.OpenAMLogFileType;
+import org.forgerock.openam.logreader.language.OpenAMLogLanguage;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;

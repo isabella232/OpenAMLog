@@ -1,4 +1,4 @@
-package org.forgerock.openam.logreader;
+package org.forgerock.openam.logreader.parser;
 
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.Language;
@@ -12,7 +12,7 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IFileElementType;
 import com.intellij.psi.tree.TokenSet;
-import org.forgerock.openam.logreader.parser.OpenAMLogParser;
+import org.forgerock.openam.logreader.language.OpenAMLogLanguage;
 import org.forgerock.openam.logreader.psi.OpenAMLogFile;
 import org.forgerock.openam.logreader.psi.OpenAMLogTypes;
 import org.jetbrains.annotations.NotNull;

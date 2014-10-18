@@ -1,4 +1,4 @@
-package org.forgerock.openam.logreader;
+package org.forgerock.openam.logreader.icons;
 
 import com.intellij.openapi.util.IconLoader;
 

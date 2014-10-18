@@ -35,7 +35,7 @@ import com.intellij.openapi.wm.ToolWindowAnchor;
 import com.intellij.openapi.wm.ToolWindowManager;
 
 import com.intellij.util.messages.MessageBusConnection;
-import org.forgerock.openam.logreader.OpenAMLogIcons;
+import org.forgerock.openam.logreader.icons.OpenAMLogIcons;
 import org.forgerock.openam.logreader.viewer.LogPropertiesPanel;
 import org.forgerock.openam.logreader.viewer.OpenAMLogViewerConstants;
 import org.jdom.Element;
