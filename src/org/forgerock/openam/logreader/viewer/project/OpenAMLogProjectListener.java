@@ -27,8 +27,8 @@ import com.intellij.openapi.wm.ToolWindowManager;
 import com.intellij.psi.PsiDocumentManager;
 import org.forgerock.openam.logreader.folding.OpenAMLogFolding;
 import org.forgerock.openam.logreader.psi.OpenAMLogFile;
-import org.forgerock.openam.logreader.viewer.LogPropertiesPanel;
-import org.forgerock.openam.logreader.viewer.OpenAMLogViewerConstants;
+import org.forgerock.openam.logreader.viewer.ui.LogPropertiesPanel;
+import org.forgerock.openam.logreader.viewer.util.OpenAMLogViewerConstants;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
@@ -39,13 +39,13 @@ import java.util.Map;
  * Date: 18/10/2014<br/>
  * Project: OpenAMLogPlugin</br>
  */
-public class ProjectListener implements FileEditorManagerListener {
+public class OpenAMLogProjectListener implements FileEditorManagerListener {
 
     private LogPropertiesPanel viewer;
     private final Project project;
     private Map<OpenAMLogFile, OpenAMLogFolding> foldingsByLogFile = new HashMap<OpenAMLogFile, OpenAMLogFolding>();
 
-    public ProjectListener(LogPropertiesPanel viewer, Project project) {
+    public OpenAMLogProjectListener(LogPropertiesPanel viewer, Project project) {
         this.viewer = viewer;
         this.project = project;
     }

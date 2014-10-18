@@ -14,7 +14,7 @@
  * Copyright 2014 ForgeRock AS.
  */
 
-package org.forgerock.openam.logreader.viewer;
+package org.forgerock.openam.logreader.viewer.ui;
 
 import javax.swing.*;
 

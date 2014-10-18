@@ -14,7 +14,7 @@
  * Copyright 2014 ForgeRock AS.
  */
 
-package org.forgerock.openam.logreader.viewer;
+package org.forgerock.openam.logreader.viewer.ui;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
@@ -22,7 +22,7 @@ import com.intellij.ui.components.JBScrollPane;
 import org.forgerock.openam.logreader.psi.OpenAMLogFile;
 import org.forgerock.openam.logreader.psi.OpenAMLogPsiImplUtil;
 import org.forgerock.openam.logreader.util.OpenAMLogUtil;
-import org.forgerock.openam.logreader.viewer.model.DebugNameListModel;
+import org.forgerock.openam.logreader.viewer.ui.model.DebugNameListModel;
 import org.forgerock.openam.logreader.viewer.project.OpenAMLogProjectComponent;
 
 import javax.swing.*;

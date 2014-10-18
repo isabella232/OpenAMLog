@@ -14,29 +14,16 @@
  * Copyright 2014 ForgeRock AS.
  */
 
-package org.forgerock.openam.logreader.viewer.model;
-
-import javax.swing.*;
-import java.util.Set;
-import java.util.TreeSet;
+package org.forgerock.openam.logreader.viewer.util;
 
 /**
  * @author qcastel<br/>
  * Date: 18/10/2014<br/>
  * Project: OpenAMLogPlugin</br>
  */
-public class DebugNameListModel extends DefaultListModel {
+public class OpenAMLogViewerConstants {
 
-    private Set<String> debugNames = new TreeSet<String>();
-
-
-    public void setDebugNames(Set<String> debugNames) {
-        this.debugNames = debugNames;
-        this.removeAllElements();
-        for (String debugName : debugNames) {
-            this.addElement(debugName);
-        }
-    }
-
-
+    public static final String ID_TOOL_WINDOW = "OpenAMLogViewer";
+    public static final String PLUGIN_NAME = "OpenAMLog";
+    public static final String PROJECT_COMPONENT_NAME = "ProjectComponent";
 }

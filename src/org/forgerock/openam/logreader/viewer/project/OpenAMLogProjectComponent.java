@@ -29,8 +29,8 @@ import com.intellij.openapi.wm.ToolWindowAnchor;
 import com.intellij.openapi.wm.ToolWindowManager;
 import com.intellij.util.messages.MessageBusConnection;
 import org.forgerock.openam.logreader.icons.OpenAMLogIcons;
-import org.forgerock.openam.logreader.viewer.LogPropertiesPanel;
-import org.forgerock.openam.logreader.viewer.OpenAMLogViewerConstants;
+import org.forgerock.openam.logreader.viewer.ui.LogPropertiesPanel;
+import org.forgerock.openam.logreader.viewer.util.OpenAMLogViewerConstants;
 import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 
@@ -46,7 +46,7 @@ public class OpenAMLogProjectComponent implements ProjectComponent, JDOMExternal
     private final Project project;
     //private EditorListener _editorListener;
     private LogPropertiesPanel viewerPanel;
-    private ProjectListener projectListener;
+    private OpenAMLogProjectListener projectListener;
 
     public OpenAMLogProjectComponent(Project project) {
         this.project = project;
@@ -79,7 +79,7 @@ public class OpenAMLogProjectComponent implements ProjectComponent, JDOMExternal
         ToolWindow toolWindow = getToolWindow();
         toolWindow.setIcon(OpenAMLogIcons.FILE);
         viewerPanel.setToolWindow(toolWindow);
-        projectListener = new ProjectListener(viewerPanel, project);
+        projectListener = new OpenAMLogProjectListener(viewerPanel, project);
         MessageBusConnection msgbus = project.getMessageBus().connect();
         msgbus.subscribe(FileEditorManagerListener.FILE_EDITOR_MANAGER, projectListener);
         //_editorListener = new EditorListener(viewerPanel, project);
