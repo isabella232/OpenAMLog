@@ -20,6 +20,11 @@ import com.intellij.openapi.util.IconLoader;
 
 import javax.swing.*;
 
+/**
+ * @author qcastel<br/>
+ * Date: 18/10/2014<br/>
+ * Project: OpenAMLogPlugin</br>
+ */
 public class OpenAMLogIcons {
     public static final Icon FILE = IconLoader.getIcon("/org/forgerock/openam/logreader/icons/forgerock-icon.png");
 }

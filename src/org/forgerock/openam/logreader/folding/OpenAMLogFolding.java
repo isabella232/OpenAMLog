@@ -30,7 +30,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by qcastel on 13/10/2014.
+ * @author qcastel<br/>
+ * Date: 18/10/2014<br/>
+ * Project: OpenAMLogPlugin</br>
  */
 public class OpenAMLogFolding {
 

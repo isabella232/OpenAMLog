@@ -18,6 +18,11 @@ package org.forgerock.openam.logreader.parser;
 
 import com.intellij.testFramework.ParsingTestCase;
 
+/**
+ * @author qcastel<br/>
+ * Date: 18/10/2014<br/>
+ * Project: OpenAMLogPlugin</br>
+ */
 public class OpenAMLogParsingTest extends ParsingTestCase {
     public OpenAMLogParsingTest() {
         super("", "lfr", new OpenAMLogParserDefinition());

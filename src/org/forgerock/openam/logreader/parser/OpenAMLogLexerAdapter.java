@@ -21,7 +21,9 @@ import com.intellij.lexer.FlexAdapter;
 import java.io.Reader;
 
 /**
- * Created by qcastel on 09/10/2014.
+ * @author qcastel<br/>
+ * Date: 18/10/2014<br/>
+ * Project: OpenAMLogPlugin</br>
  */
 public class OpenAMLogLexerAdapter extends FlexAdapter {
     public OpenAMLogLexerAdapter() {

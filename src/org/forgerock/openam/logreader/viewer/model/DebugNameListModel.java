@@ -21,7 +21,9 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * Created by qcastel on 12/10/2014.
+ * @author qcastel<br/>
+ * Date: 18/10/2014<br/>
+ * Project: OpenAMLogPlugin</br>
  */
 public class DebugNameListModel extends DefaultListModel {
 

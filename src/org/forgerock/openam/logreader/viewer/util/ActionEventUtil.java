@@ -24,6 +24,11 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 
+/**
+ * @author qcastel<br/>
+ * Date: 18/10/2014<br/>
+ * Project: OpenAMLogPlugin</br>
+ */
 public class ActionEventUtil {
     public static Project getProject(AnActionEvent event) {
         return PlatformDataKeys.PROJECT.getData(event.getDataContext());

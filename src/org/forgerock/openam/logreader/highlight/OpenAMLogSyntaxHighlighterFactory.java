@@ -22,6 +22,11 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * @author qcastel<br/>
+ * Date: 18/10/2014<br/>
+ * Project: OpenAMLogPlugin</br>
+ */
 public class OpenAMLogSyntaxHighlighterFactory extends SyntaxHighlighterFactory {
     @NotNull
     @Override

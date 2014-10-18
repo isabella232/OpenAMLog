@@ -34,6 +34,11 @@ import org.forgerock.openam.logreader.viewer.OpenAMLogViewerConstants;
 import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * @author qcastel<br/>
+ * Date: 18/10/2014<br/>
+ * Project: OpenAMLogPlugin</br>
+ */
 public class OpenAMLogProjectComponent implements ProjectComponent, JDOMExternalizable {
 
     private static final Logger LOG = Logger.getInstance("idea.plugin.psiviewer.controller.project.PsiViewerProjectComponent");

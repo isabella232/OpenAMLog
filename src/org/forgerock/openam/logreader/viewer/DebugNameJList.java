@@ -19,7 +19,9 @@ package org.forgerock.openam.logreader.viewer;
 import javax.swing.*;
 
 /**
- * Created by qcastel on 12/10/2014.
+ * @author qcastel<br/>
+ * Date: 18/10/2014<br/>
+ * Project: OpenAMLogPlugin</br>
  */
 public class DebugNameJList extends JList {
 

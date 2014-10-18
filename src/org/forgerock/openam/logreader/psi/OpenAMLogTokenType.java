@@ -21,6 +21,11 @@ import org.forgerock.openam.logreader.language.OpenAMLogLanguage;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * @author qcastel<br/>
+ * Date: 18/10/2014<br/>
+ * Project: OpenAMLogPlugin</br>
+ */
 public class OpenAMLogTokenType extends IElementType {
     public OpenAMLogTokenType(@NotNull @NonNls String debugName) {
         super(debugName, OpenAMLogLanguage.INSTANCE);

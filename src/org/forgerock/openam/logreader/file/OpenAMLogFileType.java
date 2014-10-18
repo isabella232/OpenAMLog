@@ -24,6 +24,11 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 
+/**
+ * @author qcastel<br/>
+ * Date: 18/10/2014<br/>
+ * Project: OpenAMLogPlugin</br>
+ */
 public class OpenAMLogFileType extends LanguageFileType {
     public static final OpenAMLogFileType INSTANCE = new OpenAMLogFileType();
 

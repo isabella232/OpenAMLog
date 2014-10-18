@@ -35,7 +35,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by qcastel on 12/10/2014.
+ * @author qcastel<br/>
+ * Date: 18/10/2014<br/>
+ * Project: OpenAMLogPlugin</br>
  */
 public class ProjectListener implements FileEditorManagerListener {
 
