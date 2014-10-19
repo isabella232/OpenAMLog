@@ -25,6 +25,10 @@ import org.forgerock.openam.logreader.psi.OpenAMLogTypes;
 
 
 /**
+ * Lexer Adapter
+ *
+ * Auto-generated from flex
+ *
  * @author qcastel
  * Date: 18/10/2014
  * Project: OpenAMLogPlugin

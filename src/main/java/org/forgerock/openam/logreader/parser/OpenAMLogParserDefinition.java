@@ -34,6 +34,8 @@ import org.forgerock.openam.logreader.psi.OpenAMLogTypes;
 import org.jetbrains.annotations.NotNull;
 
 /**
+ * Parser Definition
+ *
  * @author qcastel
  * Date: 18/10/2014
  * Project: OpenAMLogPlugin
@@ -42,7 +44,7 @@ public class OpenAMLogParserDefinition implements ParserDefinition {
     public static final TokenSet WHITE_SPACES = TokenSet.create(TokenType.WHITE_SPACE);
     public static final TokenSet COMMENTS = TokenSet.create(OpenAMLogTypes.COMMENT);
 
-    public static final IFileElementType FILE = new IFileElementType(Language.<OpenAMLogLanguage>findInstance(OpenAMLogLanguage.class));
+    public static final IFileElementType FILE = new IFileElementType(Language.findInstance(OpenAMLogLanguage.class));
 
     @NotNull
     @Override

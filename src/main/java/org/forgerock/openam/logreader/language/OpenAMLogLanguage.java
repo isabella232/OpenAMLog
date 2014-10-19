@@ -20,6 +20,8 @@ import com.intellij.lang.Language;
 import org.forgerock.openam.logreader.util.OpenAMLogConstant;
 
 /**
+ * OpenAM Log language
+ *
  * @author qcastel
  * Date: 18/10/2014
  * Project: OpenAMLogPlugin

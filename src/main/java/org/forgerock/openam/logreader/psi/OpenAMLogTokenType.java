@@ -22,6 +22,8 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
 /**
+ * OpenAM Token type
+ *
  * @author qcastel
  * Date: 18/10/2014
  * Project: OpenAMLogPlugin

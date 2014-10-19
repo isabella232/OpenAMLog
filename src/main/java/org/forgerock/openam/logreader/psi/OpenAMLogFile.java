@@ -21,11 +21,14 @@ import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
 import org.forgerock.openam.logreader.file.OpenAMLogFileType;
 import org.forgerock.openam.logreader.language.OpenAMLogLanguage;
+import org.forgerock.openam.logreader.util.OpenAMLogConstant;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 
 /**
+ *
+ *
  * @author qcastel
  * Date: 18/10/2014
  * Project: OpenAMLogPlugin
@@ -43,7 +46,7 @@ public class OpenAMLogFile extends PsiFileBase {
 
     @Override
     public String toString() {
-        return "OpenAM Log File";
+        return OpenAMLogConstant.LOG_FILE_DESCRIPTION;
     }
 
     @Override

@@ -23,16 +23,26 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
+ * PSI util
+ * Useful functions for extracting data in the right format from PSI element
+ *
  * @author qcastel
  * Date: 18/10/2014
  * Project: OpenAMLogPlugin
  */
 public class OpenAMLogPsiImplUtil {
+
     public static SimpleDateFormat dateFormat = new SimpleDateFormat(
             "MM/dd/yyyy hh:mm:ss:SSS a zzz");
 
-    public static String getDebugName(OpenAMLogLogtitle element) {
-        ASTNode keyNode = element.getNode().findChildByType(OpenAMLogTypes.DEBUG_NAME);
+    /**
+     * Get Debug name from LogTitle
+     *
+     * @param logTitle LogTitle
+     * @return the debug names or null if a problem occurred
+     */
+    public static String getDebugName(OpenAMLogLogtitle logTitle) {
+        ASTNode keyNode = logTitle.getNode().findChildByType(OpenAMLogTypes.DEBUG_NAME);
         if (keyNode != null) {
             return keyNode.getText();
         } else {
@@ -40,8 +50,14 @@ public class OpenAMLogPsiImplUtil {
         }
     }
 
-    public static Date getDate(OpenAMLogLogtitle element) {
-        ASTNode keyNode = element.getNode().findChildByType(OpenAMLogTypes.DATE);
+    /**
+     * Get Date from LogTitle
+     *
+     * @param logTitle LogTitle
+     * @return the Date or null if a problem occurred
+     */
+    public static Date getDate(OpenAMLogLogtitle logTitle) {
+        ASTNode keyNode = logTitle.getNode().findChildByType(OpenAMLogTypes.DATE);
         if (keyNode != null) {
             try {
                 return dateFormat.parse(keyNode.getText());
@@ -53,8 +69,14 @@ public class OpenAMLogPsiImplUtil {
         }
     }
 
-    public static String getThreadName(OpenAMLogLogtitle element) {
-        ASTNode keyNode = element.getNode().findChildByType(OpenAMLogTypes.THREAD_NAME);
+    /**
+     * Get Thread name from LogTitle
+     *
+     * @param logTitle LogTitle
+     * @return the thread name or null if a problem occurred
+     */
+    public static String getThreadName(OpenAMLogLogtitle logTitle) {
+        ASTNode keyNode = logTitle.getNode().findChildByType(OpenAMLogTypes.THREAD_NAME);
         if (keyNode != null) {
             return keyNode.getText();
         } else {

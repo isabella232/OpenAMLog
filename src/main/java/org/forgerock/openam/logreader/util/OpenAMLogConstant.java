@@ -41,6 +41,9 @@ public class OpenAMLogConstant {
 
     public static final String ID_TOOL_WINDOW;
 
+    public static final String LOG_FILE_DESCRIPTION;
+
+
     private static final String AMLOG_PROPERTIES_PATH = "OpenAMLog.properties";
 
     private static final Logger LOG = Logger.getInstance(OpenAMLogConstant.class.getName());
@@ -54,6 +57,7 @@ public class OpenAMLogConstant {
         String openAMLogFileExtension = "amlog";
         String languageName = "OpenAMLog";
         String idToolWindow = "OpenAMLogViewer";
+        String openAMLogFileDescription = "OpenAM Log File";
         try {
             URL demoTextResource = OpenAMLogConstant.class.getClassLoader().getResource(AMLOG_PROPERTIES_PATH);
             if(demoTextResource == null) {
@@ -71,6 +75,7 @@ public class OpenAMLogConstant {
                 openAMLogFileExtension = prop.getProperty("openAMLogFileExtension");
                 languageName = prop.getProperty("languageName");
                 idToolWindow = prop.getProperty("idToolWindow");
+                openAMLogFileDescription = prop.getProperty("openAMLogFileDescription");
             }
 
         } catch (IOException ex) {
@@ -88,6 +93,7 @@ public class OpenAMLogConstant {
             OPENAM_LOG_FILE_EXTENSION = openAMLogFileExtension;
             LANGUAGE_NAME = languageName;
             ID_TOOL_WINDOW = idToolWindow;
+            LOG_FILE_DESCRIPTION = openAMLogFileDescription;
         }
     }
 
