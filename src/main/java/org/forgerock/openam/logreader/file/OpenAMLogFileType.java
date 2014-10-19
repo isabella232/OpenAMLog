@@ -19,6 +19,7 @@ package org.forgerock.openam.logreader.file;
 import com.intellij.openapi.fileTypes.LanguageFileType;
 import org.forgerock.openam.logreader.icons.OpenAMLogIcons;
 import org.forgerock.openam.logreader.language.OpenAMLogLanguage;
+import org.forgerock.openam.logreader.util.OpenAMLogConstant;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -37,8 +38,6 @@ import javax.swing.*;
 public class OpenAMLogFileType extends LanguageFileType {
 
     public static final OpenAMLogFileType INSTANCE = new OpenAMLogFileType();
-
-    public static final String OPENAM_LOG_FILE_EXTENSION = "amlog";
 
     private OpenAMLogFileType() {
         super(OpenAMLogLanguage.INSTANCE);
@@ -59,7 +58,7 @@ public class OpenAMLogFileType extends LanguageFileType {
     @NotNull
     @Override
     public String getDefaultExtension() {
-        return OPENAM_LOG_FILE_EXTENSION;
+        return OpenAMLogConstant.OPENAM_LOG_FILE_EXTENSION;
     }
 
     @Nullable

@@ -29,8 +29,8 @@ import com.intellij.openapi.wm.ToolWindowAnchor;
 import com.intellij.openapi.wm.ToolWindowManager;
 import com.intellij.util.messages.MessageBusConnection;
 import org.forgerock.openam.logreader.icons.OpenAMLogIcons;
+import org.forgerock.openam.logreader.util.OpenAMLogConstant;
 import org.forgerock.openam.logreader.viewer.ui.LogPropertiesPanel;
-import org.forgerock.openam.logreader.viewer.util.OpenAMLogViewerConstants;
 import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 
@@ -68,7 +68,7 @@ public class OpenAMLogProjectComponent implements ProjectComponent, JDOMExternal
 
     @NotNull
     public String getComponentName() {
-        return OpenAMLogViewerConstants.PLUGIN_NAME + '.' + OpenAMLogViewerConstants.PROJECT_COMPONENT_NAME;
+        return OpenAMLogConstant.PLUGIN_NAME + '.' + OpenAMLogConstant.PROJECT_COMPONENT_NAME;
     }
 
     public void initToolWindow() {
@@ -97,21 +97,21 @@ public class OpenAMLogProjectComponent implements ProjectComponent, JDOMExternal
             _editorListener = null;
         }*/
         if (isToolWindowRegistered())
-            ToolWindowManager.getInstance(project).unregisterToolWindow(OpenAMLogViewerConstants.ID_TOOL_WINDOW);
+            ToolWindowManager.getInstance(project).unregisterToolWindow(OpenAMLogConstant.ID_TOOL_WINDOW);
     }
 
     private ToolWindow getToolWindow() {
         ToolWindowManager toolWindowManager = ToolWindowManager.getInstance(project);
         if (isToolWindowRegistered())
-            return toolWindowManager.getToolWindow(OpenAMLogViewerConstants.ID_TOOL_WINDOW);
+            return toolWindowManager.getToolWindow(OpenAMLogConstant.ID_TOOL_WINDOW);
         else
-            return toolWindowManager.registerToolWindow(OpenAMLogViewerConstants.ID_TOOL_WINDOW,
+            return toolWindowManager.registerToolWindow(OpenAMLogConstant.ID_TOOL_WINDOW,
                     viewerPanel,
                     ToolWindowAnchor.RIGHT);
     }
 
     private boolean isToolWindowRegistered() {
-        return ToolWindowManager.getInstance(project).getToolWindow(OpenAMLogViewerConstants.ID_TOOL_WINDOW) != null;
+        return ToolWindowManager.getInstance(project).getToolWindow(OpenAMLogConstant.ID_TOOL_WINDOW) != null;
     }
 
     public void readExternal(Element element) throws InvalidDataException {

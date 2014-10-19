@@ -16,24 +16,37 @@
 
 package org.forgerock.openam.logreader.highlight;
 
+import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.fileTypes.SyntaxHighlighter;
 import com.intellij.openapi.options.colors.AttributesDescriptor;
 import com.intellij.openapi.options.colors.ColorDescriptor;
 import com.intellij.openapi.options.colors.ColorSettingsPage;
 import org.forgerock.openam.logreader.icons.OpenAMLogIcons;
+import org.forgerock.openam.logreader.util.OpenAMLogConstant;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.net.URL;
 import java.util.Map;
+import java.util.Scanner;
 
 /**
+ * Color settings page for preferences
+ *
  * @author qcastel
  * Date: 18/10/2014
  * Project: OpenAMLogPlugin
  */
 public class OpenAMLogColorSettingsPage implements ColorSettingsPage {
+
+    private static final Logger LOG = Logger.getInstance(OpenAMLogColorSettingsPage.class.getName());
+
+    private static final String DEMO_TEXT_AMLOG_PATH = "DemoText.amlog";
+
     private static final AttributesDescriptor[] DESCRIPTORS = new AttributesDescriptor[]{
             new AttributesDescriptor("Comment", OpenAMLogSyntaxHighlighter.COMMENT),
             new AttributesDescriptor("Debug name", OpenAMLogSyntaxHighlighter.DEBUG_NAME),
@@ -57,17 +70,27 @@ public class OpenAMLogColorSettingsPage implements ColorSettingsPage {
     @NotNull
     @Override
     public String getDemoText() {
-        return "# You are reading the \".properties\" entry.\n" +
-                "amAuth:09 / 17 / 2014 07:15:06:802 AM CEST:Thread[ajp - bio - 8009 - exec - 95, 5, main]\n " +
-                "postProcessOnSuccess\n" +
-                "amAuth:09/17/2014 07:15:06:802 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]\n" +
-                "postLoginClassSet = [be.mediaid.postauthentication.RegistrationPAP]\n" +
-                "amAuth:09/17/2014 07:15:06:802 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]\n" +
-                "setPostLoginInstances : be.mediaid.postauthentication.RegistrationPAP\n" +
-                "amAuth:09/17/2014 07:15:06:802 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]\n" +
-                "setPostLoginInstances : 1\n" +
-                "amAuth:09/17/2014 07:15:06:802 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]\n" +
-                "postLoginProcess Class Name is : be.mediaid.postauthentication.RegistrationPAP";
+        String demoText = null;
+        URL demoTextResource = getClass().getClassLoader().getResource(DEMO_TEXT_AMLOG_PATH);
+        if(demoTextResource != null) {
+            try {
+                demoText = new Scanner(new File(demoTextResource.getFile())).useDelimiter("\\Z").next();
+            } catch (FileNotFoundException e) {
+                LOG.warn("Can't read '" + DEMO_TEXT_AMLOG_PATH + "' resource.", e);
+            }
+        } else {
+            LOG.warn("Can't find '" + DEMO_TEXT_AMLOG_PATH + "' resource.");
+        }
+
+        if(demoText == null) {
+            demoText = "# You are reading the OpenAM Log file.\n" +
+                    "amAuth:09 / 17 / 2014 07:15:06:802 AM CEST:Thread[ajp - bio - 8009 - exec - 95, 5, main]\n " +
+                    "postProcessOnSuccess\n" +
+                    "amAuth:09/17/2014 07:15:06:802 AM CEST: Thread[ajp-bio-8009-exec-95,5,main]\n" +
+                    "postLoginClassSet = [org.forgerock.postauthentication.RegistrationPAP]\n";
+        }
+        return demoText;
+
     }
 
     @Nullable
@@ -91,6 +114,6 @@ public class OpenAMLogColorSettingsPage implements ColorSettingsPage {
     @NotNull
     @Override
     public String getDisplayName() {
-        return "OpenAMLog";
+        return OpenAMLogConstant.PLUGIN_NAME;
     }
 }

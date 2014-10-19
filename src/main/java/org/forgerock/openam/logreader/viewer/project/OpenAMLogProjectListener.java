@@ -27,8 +27,8 @@ import com.intellij.openapi.wm.ToolWindowManager;
 import com.intellij.psi.PsiDocumentManager;
 import org.forgerock.openam.logreader.folding.OpenAMLogFolding;
 import org.forgerock.openam.logreader.psi.OpenAMLogFile;
+import org.forgerock.openam.logreader.util.OpenAMLogConstant;
 import org.forgerock.openam.logreader.viewer.ui.LogPropertiesPanel;
-import org.forgerock.openam.logreader.viewer.util.OpenAMLogViewerConstants;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
@@ -86,7 +86,7 @@ public class OpenAMLogProjectListener implements FileEditorManagerListener {
                 }
             });
 
-            ToolWindow toolWindow = ToolWindowManager.getInstance(project).getToolWindow(OpenAMLogViewerConstants.ID_TOOL_WINDOW);
+            ToolWindow toolWindow = ToolWindowManager.getInstance(project).getToolWindow(OpenAMLogConstant.ID_TOOL_WINDOW);
             if (toolWindow != null) {
                 toolWindow.activate(viewer);
             }
@@ -105,7 +105,7 @@ public class OpenAMLogProjectListener implements FileEditorManagerListener {
     }
 
     private void closeOpenAMLogView() {
-        ToolWindow toolWindow = ToolWindowManager.getInstance(project).getToolWindow(OpenAMLogViewerConstants.ID_TOOL_WINDOW);
+        ToolWindow toolWindow = ToolWindowManager.getInstance(project).getToolWindow(OpenAMLogConstant.ID_TOOL_WINDOW);
         if (toolWindow != null) {
             toolWindow.hide(viewer);
         }

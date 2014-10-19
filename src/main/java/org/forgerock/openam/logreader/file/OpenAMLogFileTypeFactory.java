@@ -18,6 +18,7 @@ package org.forgerock.openam.logreader.file;
 
 import com.intellij.openapi.fileTypes.FileTypeConsumer;
 import com.intellij.openapi.fileTypes.FileTypeFactory;
+import org.forgerock.openam.logreader.util.OpenAMLogConstant;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -32,6 +33,6 @@ import org.jetbrains.annotations.NotNull;
 public class OpenAMLogFileTypeFactory extends FileTypeFactory {
     @Override
     public void createFileTypes(@NotNull FileTypeConsumer fileTypeConsumer) {
-        fileTypeConsumer.consume(OpenAMLogFileType.INSTANCE, OpenAMLogFileType.OPENAM_LOG_FILE_EXTENSION);
+        fileTypeConsumer.consume(OpenAMLogFileType.INSTANCE, OpenAMLogConstant.OPENAM_LOG_FILE_EXTENSION);
     }
 }
