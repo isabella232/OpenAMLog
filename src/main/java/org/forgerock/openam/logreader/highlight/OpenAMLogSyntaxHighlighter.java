@@ -17,6 +17,7 @@
 package org.forgerock.openam.logreader.highlight;
 
 import com.intellij.lexer.Lexer;
+import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
 import com.intellij.openapi.editor.SyntaxHighlighterColors;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.editor.markup.TextAttributes;
@@ -37,15 +38,16 @@ import static com.intellij.openapi.editor.colors.TextAttributesKey.createTextAtt
  * Project: OpenAMLogPlugin
  */
 public class OpenAMLogSyntaxHighlighter extends SyntaxHighlighterBase {
-    public static final TextAttributesKey DEBUG_NAME = createTextAttributesKey("OPENAMLOG_DEBUG_NAME", new TextAttributes(new Color(125, 125, 125), null, null, null, Font.PLAIN));
-    public static final TextAttributesKey DATE = createTextAttributesKey("OPENAMLOG_DATE_NAME", new TextAttributes(new Color(91, 91, 91), null, null, null, Font.PLAIN));
-    public static final TextAttributesKey THREAD_NAME = createTextAttributesKey("OPENAMLOG_THREAD_NAME", new TextAttributes(new Color(144, 144, 144), null, null, null, Font.PLAIN));
-    public static final TextAttributesKey LOG_LINE = createTextAttributesKey("OPENAMLOG_LOG_LINE", new TextAttributes(new Color(36, 36, 128), null, null, null, Font.BOLD));
+    public static final TextAttributesKey DEBUG_NAME = createTextAttributesKey("OPENAMLOG_DEBUG_NAME", DefaultLanguageHighlighterColors.KEYWORD);
+    public static final TextAttributesKey DATE = createTextAttributesKey("OPENAMLOG_DATE_NAME", DefaultLanguageHighlighterColors.KEYWORD);
+    public static final TextAttributesKey THREAD_NAME = createTextAttributesKey("OPENAMLOG_THREAD_NAME", DefaultLanguageHighlighterColors.KEYWORD);
+    public static final TextAttributesKey LOG_LINE = createTextAttributesKey("OPENAMLOG_LOG_LINE",
+            DefaultLanguageHighlighterColors.VALID_STRING_ESCAPE);
 
-    public static final TextAttributesKey COMMENT = createTextAttributesKey("OPENAMLOG_COMMENT", SyntaxHighlighterColors.LINE_COMMENT);
+    public static final TextAttributesKey COMMENT = createTextAttributesKey("OPENAMLOG_COMMENT", DefaultLanguageHighlighterColors.LINE_COMMENT);
 
     static final TextAttributesKey BAD_CHARACTER = createTextAttributesKey("OPENAMLOG_BAD_CHARACTER",
-            new TextAttributes(Color.RED, null, null, null, Font.BOLD));
+            DefaultLanguageHighlighterColors.INVALID_STRING_ESCAPE);
 
     private static final TextAttributesKey[] BAD_CHAR_KEYS = new TextAttributesKey[]{BAD_CHARACTER};
     private static final TextAttributesKey[] DEBUG_NAME_KEYS = new TextAttributesKey[]{DEBUG_NAME};

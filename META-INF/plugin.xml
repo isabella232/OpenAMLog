@@ -71,6 +71,8 @@
         <lang.syntaxHighlighterFactory key="OpenAMLog"
                                        implementationClass="org.forgerock.openam.logreader.highlight.OpenAMLogSyntaxHighlighterFactory"/>
         <colorSettingsPage implementation="org.forgerock.openam.logreader.highlight.OpenAMLogColorSettingsPage"/>
+        <additionalTextAttributes scheme="Default" file="colorSchemes/OpenAMLogDefault.xml"/>
+        <additionalTextAttributes scheme="Darcula" file="colorSchemes/OpenAMLogDarcula.xml"/>
     </extensions>
 
 </idea-plugin>
