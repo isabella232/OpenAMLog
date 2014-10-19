@@ -45,7 +45,7 @@ public class OpenAMLogColorSettingsPage implements ColorSettingsPage {
 
     private static final Logger LOG = Logger.getInstance(OpenAMLogColorSettingsPage.class.getName());
 
-    private static final String DEMO_TEXT_AMLOG_PATH = "DemoText.amlog";
+    private static final String DEMO_TEXT_PATH = "DemoText.amlog";
 
     private static final AttributesDescriptor[] DESCRIPTORS = new AttributesDescriptor[]{
             new AttributesDescriptor("Comment", OpenAMLogSyntaxHighlighter.COMMENT),
@@ -71,15 +71,15 @@ public class OpenAMLogColorSettingsPage implements ColorSettingsPage {
     @Override
     public String getDemoText() {
         String demoText = null;
-        URL demoTextResource = getClass().getClassLoader().getResource(DEMO_TEXT_AMLOG_PATH);
+        URL demoTextResource = getClass().getClassLoader().getResource(DEMO_TEXT_PATH);
         if(demoTextResource != null) {
             try {
                 demoText = new Scanner(new File(demoTextResource.getFile())).useDelimiter("\\Z").next();
             } catch (FileNotFoundException e) {
-                LOG.warn("Can't read '" + DEMO_TEXT_AMLOG_PATH + "' resource.", e);
+                LOG.warn("Can't read '" + DEMO_TEXT_PATH + "' resource.", e);
             }
         } else {
-            LOG.warn("Can't find '" + DEMO_TEXT_AMLOG_PATH + "' resource.");
+            LOG.warn("Can't find '" + DEMO_TEXT_PATH + "' resource.");
         }
 
         if(demoText == null) {

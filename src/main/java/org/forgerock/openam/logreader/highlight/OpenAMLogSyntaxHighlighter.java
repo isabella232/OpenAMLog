@@ -18,17 +18,13 @@ package org.forgerock.openam.logreader.highlight;
 
 import com.intellij.lexer.Lexer;
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
-import com.intellij.openapi.editor.SyntaxHighlighterColors;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
-import com.intellij.openapi.editor.markup.TextAttributes;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
 import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IElementType;
 import org.forgerock.openam.logreader.parser.OpenAMLogLexerAdapter;
 import org.forgerock.openam.logreader.psi.OpenAMLogTypes;
 import org.jetbrains.annotations.NotNull;
-
-import java.awt.*;
 
 import static com.intellij.openapi.editor.colors.TextAttributesKey.createTextAttributesKey;
 

@@ -21,10 +21,14 @@ import com.intellij.openapi.util.IconLoader;
 import javax.swing.*;
 
 /**
+ * OpenAM log Icons
+ *
+ * Icons is used when an OpenAM log files is detected
+ *
  * @author qcastel
  * Date: 18/10/2014
  * Project: OpenAMLogPlugin
  */
 public class OpenAMLogIcons {
-    public static final Icon FILE = IconLoader.getIcon("/org/forgerock/openam/logreader/icons/forgerock-icon.png");
+    public static final Icon FILE = IconLoader.getIcon("/forgerock-icon.png");
 }

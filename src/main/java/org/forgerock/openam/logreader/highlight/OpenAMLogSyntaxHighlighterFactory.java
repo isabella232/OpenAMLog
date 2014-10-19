@@ -23,6 +23,10 @@ import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NotNull;
 
 /**
+ * HighLighter Factory
+ *
+ * It's use in the META inf for referencing the right HighLighter class for the AM log files
+ *
  * @author qcastel
  * Date: 18/10/2014
  * Project: OpenAMLogPlugin
