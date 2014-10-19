@@ -21,6 +21,10 @@ import com.intellij.openapi.fileTypes.FileTypeFactory;
 import org.jetbrains.annotations.NotNull;
 
 /**
+ * OpenAM log file factory.
+ * Allow the file creation of an OpenAM log file.
+ * The factory is register in the META.
+ *
  * @author qcastel<br/>
  * Date: 18/10/2014<br/>
  * Project: OpenAMLogPlugin</br>
@@ -28,6 +32,6 @@ import org.jetbrains.annotations.NotNull;
 public class OpenAMLogFileTypeFactory extends FileTypeFactory {
     @Override
     public void createFileTypes(@NotNull FileTypeConsumer fileTypeConsumer) {
-        fileTypeConsumer.consume(OpenAMLogFileType.INSTANCE, "amlog");
+        fileTypeConsumer.consume(OpenAMLogFileType.INSTANCE, OpenAMLogFileType.OPENAM_LOG_FILE_EXTENSION);
     }
 }

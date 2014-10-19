@@ -64,8 +64,10 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <fileTypeFactory implementation="org.forgerock.openam.logreader.file.OpenAMLogFileTypeFactory"/>
+
         <lang.parserDefinition language="OpenAMLog"
                                implementationClass="org.forgerock.openam.logreader.parser.OpenAMLogParserDefinition"/>
+
         <lang.syntaxHighlighterFactory key="OpenAMLog"
                                        implementationClass="org.forgerock.openam.logreader.highlight.OpenAMLogSyntaxHighlighterFactory"/>
         <colorSettingsPage implementation="org.forgerock.openam.logreader.highlight.OpenAMLogColorSettingsPage"/>

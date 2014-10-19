@@ -25,12 +25,20 @@ import org.jetbrains.annotations.Nullable;
 import javax.swing.*;
 
 /**
+ * Intellij file type definition.
+ *
+ * It's used by intellij to associate a language support to a file type.
+ * File types are editable on the preference menu.
+ *
  * @author qcastel<br/>
  * Date: 18/10/2014<br/>
  * Project: OpenAMLogPlugin</br>
  */
 public class OpenAMLogFileType extends LanguageFileType {
+
     public static final OpenAMLogFileType INSTANCE = new OpenAMLogFileType();
+
+    public static final String OPENAM_LOG_FILE_EXTENSION = "amlog";
 
     private OpenAMLogFileType() {
         super(OpenAMLogLanguage.INSTANCE);
@@ -51,7 +59,7 @@ public class OpenAMLogFileType extends LanguageFileType {
     @NotNull
     @Override
     public String getDefaultExtension() {
-        return "amlog";
+        return OPENAM_LOG_FILE_EXTENSION;
     }
 
     @Nullable
