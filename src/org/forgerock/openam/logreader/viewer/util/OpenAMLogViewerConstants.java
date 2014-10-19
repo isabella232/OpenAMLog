@@ -17,9 +17,9 @@
 package org.forgerock.openam.logreader.viewer.util;
 
 /**
- * @author qcastel<br/>
- * Date: 18/10/2014<br/>
- * Project: OpenAMLogPlugin</br>
+ * @author qcastel
+ * Date: 18/10/2014
+ * Project: OpenAMLogPlugin
  */
 public class OpenAMLogViewerConstants {
 

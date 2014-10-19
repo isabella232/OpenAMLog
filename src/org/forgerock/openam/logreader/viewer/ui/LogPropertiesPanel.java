@@ -32,9 +32,9 @@ import java.util.Date;
 import java.util.Set;
 
 /**
- * @author qcastel<br/>
- * Date: 18/10/2014<br/>
- * Project: OpenAMLogPlugin</br>
+ * @author qcastel
+ * Date: 18/10/2014
+ * Project: OpenAMLogPlugin
  */
 public class LogPropertiesPanel extends JPanel implements Runnable {
 

@@ -23,9 +23,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @author qcastel<br/>
- * Date: 18/10/2014<br/>
- * Project: OpenAMLogPlugin</br>
+ * @author qcastel
+ * Date: 18/10/2014
+ * Project: OpenAMLogPlugin
  */
 public class OpenAMLogPsiImplUtil {
     public static SimpleDateFormat dateFormat = new SimpleDateFormat(

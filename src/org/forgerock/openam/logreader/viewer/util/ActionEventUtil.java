@@ -25,9 +25,9 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 
 /**
- * @author qcastel<br/>
- * Date: 18/10/2014<br/>
- * Project: OpenAMLogPlugin</br>
+ * @author qcastel
+ * Date: 18/10/2014
+ * Project: OpenAMLogPlugin
  */
 public class ActionEventUtil {
     public static Project getProject(AnActionEvent event) {

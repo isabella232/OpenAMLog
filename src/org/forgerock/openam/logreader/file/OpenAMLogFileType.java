@@ -30,9 +30,9 @@ import javax.swing.*;
  * It's used by intellij to associate a language support to a file type.
  * File types are editable on the preference menu.
  *
- * @author qcastel<br/>
- * Date: 18/10/2014<br/>
- * Project: OpenAMLogPlugin</br>
+ * @author qcastel
+ * Date: 18/10/2014
+ * Project: OpenAMLogPlugin
  */
 public class OpenAMLogFileType extends LanguageFileType {
 

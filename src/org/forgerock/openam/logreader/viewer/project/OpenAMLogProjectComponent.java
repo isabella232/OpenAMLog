@@ -35,9 +35,9 @@ import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * @author qcastel<br/>
- * Date: 18/10/2014<br/>
- * Project: OpenAMLogPlugin</br>
+ * @author qcastel
+ * Date: 18/10/2014
+ * Project: OpenAMLogPlugin
  */
 public class OpenAMLogProjectComponent implements ProjectComponent, JDOMExternalizable {
 

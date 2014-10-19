@@ -25,9 +25,9 @@ import org.jetbrains.annotations.NotNull;
  * Allow the file creation of an OpenAM log file.
  * The factory is register in the META.
  *
- * @author qcastel<br/>
- * Date: 18/10/2014<br/>
- * Project: OpenAMLogPlugin</br>
+ * @author qcastel
+ * Date: 18/10/2014
+ * Project: OpenAMLogPlugin
  */
 public class OpenAMLogFileTypeFactory extends FileTypeFactory {
     @Override

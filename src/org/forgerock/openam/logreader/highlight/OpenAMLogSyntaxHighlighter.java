@@ -32,9 +32,9 @@ import java.awt.*;
 import static com.intellij.openapi.editor.colors.TextAttributesKey.createTextAttributesKey;
 
 /**
- * @author qcastel<br/>
- * Date: 18/10/2014<br/>
- * Project: OpenAMLogPlugin</br>
+ * @author qcastel
+ * Date: 18/10/2014
+ * Project: OpenAMLogPlugin
  */
 public class OpenAMLogSyntaxHighlighter extends SyntaxHighlighterBase {
     public static final TextAttributesKey DEBUG_NAME = createTextAttributesKey("OPENAMLOG_DEBUG_NAME", new TextAttributes(new Color(125, 125, 125), null, null, null, Font.PLAIN));

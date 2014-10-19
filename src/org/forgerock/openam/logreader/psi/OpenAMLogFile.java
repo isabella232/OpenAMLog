@@ -26,9 +26,9 @@ import org.jetbrains.annotations.NotNull;
 import javax.swing.*;
 
 /**
- * @author qcastel<br/>
- * Date: 18/10/2014<br/>
- * Project: OpenAMLogPlugin</br>
+ * @author qcastel
+ * Date: 18/10/2014
+ * Project: OpenAMLogPlugin
  */
 public class OpenAMLogFile extends PsiFileBase {
     public OpenAMLogFile(@NotNull FileViewProvider viewProvider) {

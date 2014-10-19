@@ -25,9 +25,9 @@ import org.forgerock.openam.logreader.psi.OpenAMLogTypes;
 
 
 /**
- * @author qcastel<br/>
- * Date: 18/10/2014<br/>
- * Project: OpenAMLogPlugin</br>
+ * @author qcastel
+ * Date: 18/10/2014
+ * Project: OpenAMLogPlugin
  */
 class OpenAMLogLexer implements FlexLexer {
     /**
