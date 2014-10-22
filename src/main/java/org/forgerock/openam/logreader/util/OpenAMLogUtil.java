@@ -30,6 +30,12 @@ import java.util.*;
 public class OpenAMLogUtil {
 
 
+    /**
+     * Filter logs by a list of debug names
+     * @param openAMLogFile log file
+     * @param debugNames list of debug names that you want to keep
+     * @return every logs that have their debug names in debugNames
+     */
     public static List<OpenAMLogLog> filterByDebugNames(OpenAMLogFile openAMLogFile, List<String> debugNames) {
         List<OpenAMLogLog> result = null;
 
@@ -50,6 +56,11 @@ public class OpenAMLogUtil {
         return result != null ? result : Collections.<OpenAMLogLog>emptyList();
     }
 
+    /**
+     * Get the set of debug names in this file
+     * @param openAMLogFile log file
+     * @return every debug Names in log file
+     */
     public static Set<String> findAllDebugNames(OpenAMLogFile openAMLogFile) {
         Set<String> result = new TreeSet<String>();
 
@@ -64,6 +75,11 @@ public class OpenAMLogUtil {
         return result;
     }
 
+    /**
+     * Get the start Date
+     * @param openAMLogFile
+     * @return
+     */
     public static Date getMinDate(OpenAMLogFile openAMLogFile) {
         Date minDate = null;
         if (openAMLogFile != null) {
@@ -82,6 +98,11 @@ public class OpenAMLogUtil {
         return minDate;
     }
 
+    /**
+     * Get the end date
+     * @param openAMLogFile
+     * @return
+     */
     public static Date getMaxDate(OpenAMLogFile openAMLogFile) {
         Date maxDate = null;
         if (openAMLogFile != null) {
