@@ -35,6 +35,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * Project Listener
+ *
+ * Will launch automatic action when an OpenAM log is involved.
  * @author qcastel
  * Date: 18/10/2014
  * Project: OpenAMLogPlugin
@@ -44,10 +47,17 @@ public class OpenAMLogProjectListener implements FileEditorManagerListener {
     private LogPropertiesPanel viewer;
     private final Project project;
     private Map<OpenAMLogFile, OpenAMLogFolding> foldingsByLogFile = new HashMap<OpenAMLogFile, OpenAMLogFolding>();
-
+    private ToolWindow toolWindow;
+    /**
+     * Constructor
+     * @param viewer OpenAM viewer
+     * @param project Current project
+     */
     public OpenAMLogProjectListener(LogPropertiesPanel viewer, Project project) {
         this.viewer = viewer;
         this.project = project;
+        this.toolWindow = ToolWindowManager.getInstance(project).getToolWindow(OpenAMLogConstant.ID_TOOL_WINDOW);
+
     }
 
     @Override
@@ -63,21 +73,24 @@ public class OpenAMLogProjectListener implements FileEditorManagerListener {
     @Override
     public void selectionChanged(@NotNull FileEditorManagerEvent event) {
         final Editor editor = FileEditorManager.getInstance(project).getSelectedTextEditor();
-        if (editor == null) {
+        if (editor == null) { // When an error occurred in intellij, editor could be null
             closeOpenAMLogView();
             return;
         }
         try {
             PsiDocumentManager psiDocumentManager = PsiDocumentManager.getInstance(project);
-            if (psiDocumentManager == null) {
+            if (psiDocumentManager == null) { //Could happen if intellij failed
                 closeOpenAMLogView();
                 return;
             }
             OpenAMLogFile logFile = (OpenAMLogFile) psiDocumentManager.getPsiFile(editor.getDocument());
 
+            // Create OpenAM folding controller
             if (!foldingsByLogFile.containsKey(logFile)) {
                 foldingsByLogFile.put(logFile, new OpenAMLogFolding(logFile));
             }
+
+            //Generate folding
             final OpenAMLogFolding folding = foldingsByLogFile.get(logFile);
             editor.getFoldingModel().runBatchFoldingOperation(new Runnable() {
                 @Override
@@ -86,12 +99,16 @@ public class OpenAMLogProjectListener implements FileEditorManagerListener {
                 }
             });
 
-            ToolWindow toolWindow = ToolWindowManager.getInstance(project).getToolWindow(OpenAMLogConstant.ID_TOOL_WINDOW);
+            // Activate viewer
             if (toolWindow != null) {
                 toolWindow.activate(viewer);
             }
+
+            // initialize viewer
             viewer.setVisible(true);
             viewer.refreshOpenAMLogProperties(logFile);
+
+            //TODO for testing, will be useful later.
             editor.getFoldingModel().runBatchFoldingOperation(new Runnable() {
                 @Override
                 public void run() {
@@ -104,8 +121,10 @@ public class OpenAMLogProjectListener implements FileEditorManagerListener {
 
     }
 
+    /**
+     * Close the OpenAM log viewer
+     */
     private void closeOpenAMLogView() {
-        ToolWindow toolWindow = ToolWindowManager.getInstance(project).getToolWindow(OpenAMLogConstant.ID_TOOL_WINDOW);
         if (toolWindow != null) {
             toolWindow.hide(viewer);
         }

@@ -18,20 +18,21 @@ package org.forgerock.openam.logreader.viewer.ui.model;
 
 import javax.swing.*;
 import java.util.Set;
-import java.util.TreeSet;
 
 /**
+ * Debug names model for panel
+ *
  * @author qcastel
  * Date: 18/10/2014
  * Project: OpenAMLogPlugin
  */
 public class DebugNameListModel extends DefaultListModel {
 
-    private Set<String> debugNames = new TreeSet<String>();
-
-
+    /**
+     * Set debug names set
+     * @param debugNames debug names list
+     */
     public void setDebugNames(Set<String> debugNames) {
-        this.debugNames = debugNames;
         this.removeAllElements();
         for (String debugName : debugNames) {
             this.addElement(debugName);

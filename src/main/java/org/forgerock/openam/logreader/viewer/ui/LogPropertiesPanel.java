@@ -16,20 +16,16 @@
 
 package org.forgerock.openam.logreader.viewer.ui;
 
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.ui.components.JBScrollPane;
 import org.forgerock.openam.logreader.psi.OpenAMLogFile;
 import org.forgerock.openam.logreader.psi.OpenAMLogPsiImplUtil;
 import org.forgerock.openam.logreader.util.OpenAMLogUtil;
 import org.forgerock.openam.logreader.viewer.ui.model.DebugNameListModel;
-import org.forgerock.openam.logreader.viewer.project.OpenAMLogProjectComponent;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.Date;
-import java.util.Set;
 
 /**
  * @author qcastel
@@ -38,97 +34,122 @@ import java.util.Set;
  */
 public class LogPropertiesPanel extends JPanel implements Runnable {
 
+    public static final int SPLIT_DIVIDER_POSITION = 300;
+
+    private static final String PROPERTY_COLUMN_TITLE = "Property" ;
+    private static final String VALUE_COLUMN_TITLE = "Value";
+    private static final String LOG_NAME_TITLE = "Log Name";
+    private static final String NB_DEBUGGERS_TITLE = "Number of debuggers";
+    private static final String START_DATE_TITLE = "Start Date";
+    private static final String END_DATE_TITLE = "End Date";
+
 
     private DebugNameJList debugNameJList;
     private DebugNameListModel debugNameListModel = new DebugNameListModel();
     private JTable table;
-    private JSplitPane splitPane;
-    public int SPLIT_DIVIDER_POSITION = 300;
 
-    private final OpenAMLogProjectComponent _projectComponent;
-    private final Project _project;
-    private ToolWindow toolWindow;
-
-    public LogPropertiesPanel(OpenAMLogProjectComponent projectComponent) {
-        _projectComponent = projectComponent;
-        _project = projectComponent.getProject();
-
+    /**
+     * Constructor
+     */
+    public LogPropertiesPanel() {
         buildGUI();
     }
 
+    /**
+     * Build GUI : build and connect every UI elements with the main layout
+     */
     private void buildGUI() {
         setLayout(new BorderLayout());
 
-        debugNameJList = new DebugNameJList(debugNameListModel);
-        String columnNames[] = {"Property", "Value"};
+        //Construct sub panel elements
+        {
+            // Debug names panel
+            debugNameJList = new DebugNameJList(debugNameListModel);
 
-        DefaultTableModel model = new DefaultTableModel(columnNames, 2);
-        table = new JTable(model) {
-            @Override
-            public boolean isCellEditable(int arg0, int arg1) {
-                return false;
-            }
-        };
+            // Properties panel
+            String columnNames[] = {"Property", "Value"};
+            DefaultTableModel model = new DefaultTableModel(columnNames, 2);
+            table = new JTable(model) {
+                @Override
+                public boolean isCellEditable(int arg0, int arg1) {
+                    return false;
+                }
+            };
+        }
 
-        splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, new JBScrollPane(debugNameJList), table);
-        splitPane.setDividerLocation(SPLIT_DIVIDER_POSITION);
+        //link sub panel elements in a split panel
+        JSplitPane splitPanel = new JSplitPane(JSplitPane.VERTICAL_SPLIT, new JBScrollPane(debugNameJList), table);
+        splitPanel.setDividerLocation(SPLIT_DIVIDER_POSITION);
 
-        add(splitPane);
+        // Split panel to the main panel
+        add(splitPanel);
 
     }
 
-    private ToolWindow getToolWindow() {
-        return toolWindow;
-    }
-
-    public void setToolWindow(ToolWindow toolWindow) {
-        toolWindow = toolWindow;
-    }
 
     @Override
+    /**
+     * Useful for activate the panel in the tool viewer
+     */
     public void run() {
-
     }
 
-    public void setDebugNames(Set<String> allDebugNames) {
-        debugNameListModel.setDebugNames(allDebugNames);
-    }
-
+    /**
+     * Refresh the OpenAm Log viewer with the current file
+     * @param logFile current log file
+     */
     public void refreshOpenAMLogProperties(OpenAMLogFile logFile) {
 
-        setDebugNames(OpenAMLogUtil.findAllDebugNames(logFile));
+        //Debug names
+        debugNameListModel.setDebugNames(OpenAMLogUtil.findAllDebugNames(logFile));
+
+        //Properties table
         initTableFromLog(logFile);
+
+        //Refresh panel
         revalidate();
         repaint();
         debugNameJList.repaint();
         table.repaint();
     }
 
+    /**
+     * Initialize the properties table panel
+     * @param logFile current log file
+     */
     public void initTableFromLog(OpenAMLogFile logFile) {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
 
-        int rowCount = model.getRowCount();
-        //Remove rows one by one from the end of the table
-        for (int i = rowCount - 1; i >= 0; i--) {
-            model.removeRow(i);
+        //Remove current properties
+        {
+            int rowCount = model.getRowCount();
+            //Remove rows one by one from the end of the table
+            for (int i = rowCount - 1; i >= 0; i--) {
+                model.removeRow(i);
+            }
         }
-        String columnNames[] = {"Property", "Value"};
+
+        //Columns
+        String columnNames[] = {PROPERTY_COLUMN_TITLE, VALUE_COLUMN_TITLE};
         model.addRow(columnNames);
 
-        model.addRow(new Object[]{"Log Name", logFile.getName()});
 
-        int nbDebugNames = OpenAMLogUtil.findAllDebugNames(logFile).size();
-        model.addRow(new Object[]{"Number of debuggers", nbDebugNames});
+        //Set properties
+        {
+            model.addRow(new Object[]{LOG_NAME_TITLE, logFile.getName()});
 
-        Date startDate = OpenAMLogUtil.getMinDate(logFile);
-        if (startDate != null) {
-            model.addRow(new Object[]{"Start Date", OpenAMLogPsiImplUtil.dateFormat.format(startDate)});
+            int nbDebugNames = OpenAMLogUtil.findAllDebugNames(logFile).size();
+            model.addRow(new Object[]{NB_DEBUGGERS_TITLE, nbDebugNames});
+
+            Date startDate = OpenAMLogUtil.getMinDate(logFile);
+            if (startDate != null) {
+                model.addRow(new Object[]{START_DATE_TITLE, OpenAMLogPsiImplUtil.dateFormat.format(startDate)});
+            }
+            Date endDate = OpenAMLogUtil.getMaxDate(logFile);
+            if (startDate != null) {
+                model.addRow(new Object[]{END_DATE_TITLE, OpenAMLogPsiImplUtil.dateFormat.format(endDate)});
+            }
         }
-        Date endDate = OpenAMLogUtil.getMaxDate(logFile);
-        if (startDate != null) {
-            model.addRow(new Object[]{"End Date", OpenAMLogPsiImplUtil.dateFormat.format(endDate)});
-        }
-
 
     }
 }

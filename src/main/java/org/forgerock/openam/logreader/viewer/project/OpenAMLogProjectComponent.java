@@ -89,11 +89,10 @@ public class OpenAMLogProjectComponent implements ProjectComponent {
      * Initialize the tool window
      */
     public void initToolWindow() {
-        viewerPanel = new LogPropertiesPanel(this);
+        viewerPanel = new LogPropertiesPanel();
 
         ToolWindow toolWindow = getToolWindow();
         toolWindow.setIcon(OpenAMLogIcons.FILE);
-        viewerPanel.setToolWindow(toolWindow);
         OpenAMLogProjectListener projectListener = new OpenAMLogProjectListener(viewerPanel, project);
         MessageBusConnection messageBusConnection = project.getMessageBus().connect();
         messageBusConnection.subscribe(FileEditorManagerListener.FILE_EDITOR_MANAGER, projectListener);
