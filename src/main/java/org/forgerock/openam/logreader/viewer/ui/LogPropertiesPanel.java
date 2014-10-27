@@ -24,6 +24,8 @@ import org.forgerock.openam.logreader.viewer.ui.model.DebugNameListModel;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
 import java.awt.*;
 import java.util.Date;
 
@@ -42,7 +44,7 @@ public class LogPropertiesPanel extends JPanel implements Runnable {
     private static final String NB_DEBUGGERS_TITLE = "Number of debuggers";
     private static final String START_DATE_TITLE = "Start Date";
     private static final String END_DATE_TITLE = "End Date";
-
+    private static final int MARGIN = 5;
 
     private DebugNameJList debugNameJList;
     private DebugNameListModel debugNameListModel = new DebugNameListModel();
@@ -67,8 +69,10 @@ public class LogPropertiesPanel extends JPanel implements Runnable {
             debugNameJList = new DebugNameJList(debugNameListModel);
 
             // Properties panel
-            String columnNames[] = {"Property", "Value"};
-            DefaultTableModel model = new DefaultTableModel(columnNames, 2);
+            String columnNames[] = {PROPERTY_COLUMN_TITLE, VALUE_COLUMN_TITLE};
+            DefaultTableModel model = new DefaultTableModel();
+            model.setColumnIdentifiers(columnNames);
+
             table = new JTable(model) {
                 @Override
                 public boolean isCellEditable(int arg0, int arg1) {
@@ -78,7 +82,7 @@ public class LogPropertiesPanel extends JPanel implements Runnable {
         }
 
         //link sub panel elements in a split panel
-        JSplitPane splitPanel = new JSplitPane(JSplitPane.VERTICAL_SPLIT, new JBScrollPane(debugNameJList), table);
+        JSplitPane splitPanel = new JSplitPane(JSplitPane.VERTICAL_SPLIT, new JBScrollPane(debugNameJList), new JBScrollPane(table));
         splitPanel.setDividerLocation(SPLIT_DIVIDER_POSITION);
 
         // Split panel to the main panel
@@ -129,11 +133,6 @@ public class LogPropertiesPanel extends JPanel implements Runnable {
             }
         }
 
-        //Columns
-        String columnNames[] = {PROPERTY_COLUMN_TITLE, VALUE_COLUMN_TITLE};
-        model.addRow(columnNames);
-
-
         //Set properties
         {
             model.addRow(new Object[]{LOG_NAME_TITLE, logFile.getName()});
@@ -151,5 +150,19 @@ public class LogPropertiesPanel extends JPanel implements Runnable {
             }
         }
 
+        //Set properties column size
+        {
+            TableColumn propertyColumn = table.getColumn(PROPERTY_COLUMN_TITLE);
+            int width = 0;
+            for (int row = 0; row < table.getRowCount(); row++) {
+                TableCellRenderer renderer = table.getCellRenderer(row, propertyColumn.getModelIndex());
+                Component comp = table.prepareRenderer(renderer, row, propertyColumn.getModelIndex());
+                width = Math.max (comp.getPreferredSize().width, width);
+            }
+            propertyColumn.setMaxWidth(width + MARGIN);
+            propertyColumn.setPreferredWidth(width + MARGIN);
+        }
+
     }
+
 }
