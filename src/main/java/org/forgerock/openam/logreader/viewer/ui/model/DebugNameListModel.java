@@ -16,7 +16,11 @@
 
 package org.forgerock.openam.logreader.viewer.ui.model;
 
+import org.forgerock.openam.logreader.viewer.project.LogPropertiesStatus;
+
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -31,12 +35,18 @@ public class DebugNameListModel extends DefaultListModel {
     /**
      * Set debug names set
      * @param debugNames debug names list
+     * @return all the checkbox for every debug names given
      */
-    public void setDebugNames(Set<String> debugNames) {
+    public List<DebugNameCheckListItem> setDebugNames(LogPropertiesStatus logPropertiesStatus, Set<String> debugNames) {
         this.removeAllElements();
+        List<DebugNameCheckListItem> checkListItemList = new ArrayList<DebugNameCheckListItem>();
         for (String debugName : debugNames) {
-            this.addElement(debugName);
+            DebugNameCheckListItem checkListItem = new DebugNameCheckListItem(debugName);
+            checkListItem.setSelected(logPropertiesStatus.isDebugNameSelected(debugName));
+            this.addElement(checkListItem);
+            checkListItemList.add(checkListItem);
         }
+        return checkListItemList;
     }
 
 

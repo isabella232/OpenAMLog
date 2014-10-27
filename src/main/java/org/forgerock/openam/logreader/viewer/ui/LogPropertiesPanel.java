@@ -16,18 +16,28 @@
 
 package org.forgerock.openam.logreader.viewer.ui;
 
+import com.intellij.openapi.actionSystem.ActionManager;
+import com.intellij.openapi.actionSystem.ActionToolbar;
+import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.ui.components.JBScrollPane;
-import org.forgerock.openam.logreader.psi.OpenAMLogFile;
 import org.forgerock.openam.logreader.psi.OpenAMLogPsiImplUtil;
+import org.forgerock.openam.logreader.util.OpenAMLogConstant;
 import org.forgerock.openam.logreader.util.OpenAMLogUtil;
+import org.forgerock.openam.logreader.viewer.project.LogPropertiesStatus;
+import org.forgerock.openam.logreader.viewer.ui.icons.ToolBarIcons;
+import org.forgerock.openam.logreader.viewer.ui.model.DebugNameCheckListItem;
 import org.forgerock.openam.logreader.viewer.ui.model.DebugNameListModel;
+import org.forgerock.openam.logreader.viewer.ui.toolbar.ButtonActionListener;
+import org.forgerock.openam.logreader.viewer.ui.toolbar.OpenAMLogToggleAction;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import java.awt.*;
-import java.util.Date;
+import java.util.*;
+import java.util.List;
 
 /**
  * @author qcastel
@@ -49,6 +59,8 @@ public class LogPropertiesPanel extends JPanel implements Runnable {
     private DebugNameJList debugNameJList;
     private DebugNameListModel debugNameListModel = new DebugNameListModel();
     private JTable table;
+    private List<DebugNameCheckListItem> checkListItems;
+    private LogPropertiesStatus currentLogPropertiesStatus;
 
     /**
      * Constructor
@@ -88,6 +100,43 @@ public class LogPropertiesPanel extends JPanel implements Runnable {
         // Split panel to the main panel
         add(splitPanel);
 
+        //Set toolBar
+        DefaultActionGroup actionGroup = new DefaultActionGroup(OpenAMLogConstant.ID_TOOL_BAR_WINDOW, false);
+
+        ButtonActionListener checkAction = new ButtonActionListener() {
+            @Override
+            public void onClickAction(AnActionEvent anActionEvent, boolean b) {
+                for(DebugNameCheckListItem checkItem : checkListItems) {
+                    checkItem.setSelected(true);
+                    currentLogPropertiesStatus.selectedEvent(checkItem.getDebugName());
+                }
+                refreshPanel();
+            }
+        };
+        actionGroup.add(new OpenAMLogToggleAction(OpenAMLogConstant.CHECKBOX_TEXT,
+                OpenAMLogConstant.CHECKBOX_TEXT,
+                ToolBarIcons.CHECKED_BOX, checkAction));
+
+        ButtonActionListener uncheckAction = new ButtonActionListener() {
+            @Override
+            public void onClickAction(AnActionEvent anActionEvent, boolean b) {
+                for(DebugNameCheckListItem checkItem : checkListItems) {
+                    checkItem.setSelected(false);
+                    currentLogPropertiesStatus.unselectedEvent(checkItem.getDebugName());
+                }
+                refreshPanel();
+            }
+        };
+        actionGroup.add(new OpenAMLogToggleAction(OpenAMLogConstant.UNCHECKBOX_TEXT,
+                OpenAMLogConstant.UNCHECKBOX_TEXT,
+                ToolBarIcons.UNCHECKED_BOX, uncheckAction));
+
+
+
+        ActionManager actionManager = ActionManager.getInstance();
+        ActionToolbar toolBar = actionManager.createActionToolbar(OpenAMLogConstant.ID_TOOL_BAR_WINDOW, actionGroup, true);
+
+        add(toolBar.getComponent(), BorderLayout.NORTH);
     }
 
 
@@ -100,28 +149,39 @@ public class LogPropertiesPanel extends JPanel implements Runnable {
 
     /**
      * Refresh the OpenAm Log viewer with the current file
-     * @param logFile current log file
+     * @param logPropertiesStatus current log properties status
      */
-    public void refreshOpenAMLogProperties(OpenAMLogFile logFile) {
+    public void refreshOpenAMLogProperties(LogPropertiesStatus logPropertiesStatus) {
+
+        this.currentLogPropertiesStatus = logPropertiesStatus;
+
+        // Set Debug names listener
+        debugNameJList.setDebugNamesStatusListener(currentLogPropertiesStatus);
 
         //Debug names
-        debugNameListModel.setDebugNames(OpenAMLogUtil.findAllDebugNames(logFile));
+        initCheckboxListFromLog();
 
         //Properties table
-        initTableFromLog(logFile);
+        initTableFromLog();
 
         //Refresh panel
-        revalidate();
-        repaint();
-        debugNameJList.repaint();
-        table.repaint();
+        refreshPanel();
+    }
+
+    /**
+     * Initialize the checkbox list
+     */
+    private void initCheckboxListFromLog() {
+        checkListItems = debugNameListModel.setDebugNames(currentLogPropertiesStatus,
+                OpenAMLogUtil.findAllDebugNames(currentLogPropertiesStatus
+                .getLogFile()));
+
     }
 
     /**
      * Initialize the properties table panel
-     * @param logFile current log file
      */
-    public void initTableFromLog(OpenAMLogFile logFile) {
+    private void initTableFromLog() {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
 
         //Remove current properties
@@ -135,16 +195,16 @@ public class LogPropertiesPanel extends JPanel implements Runnable {
 
         //Set properties
         {
-            model.addRow(new Object[]{LOG_NAME_TITLE, logFile.getName()});
+            model.addRow(new Object[]{LOG_NAME_TITLE, currentLogPropertiesStatus.getLogFile().getName()});
 
-            int nbDebugNames = OpenAMLogUtil.findAllDebugNames(logFile).size();
+            int nbDebugNames = OpenAMLogUtil.findAllDebugNames(currentLogPropertiesStatus.getLogFile()).size();
             model.addRow(new Object[]{NB_DEBUGGERS_TITLE, nbDebugNames});
 
-            Date startDate = OpenAMLogUtil.getMinDate(logFile);
+            Date startDate = OpenAMLogUtil.getMinDate(currentLogPropertiesStatus.getLogFile());
             if (startDate != null) {
                 model.addRow(new Object[]{START_DATE_TITLE, OpenAMLogPsiImplUtil.dateFormat.format(startDate)});
             }
-            Date endDate = OpenAMLogUtil.getMaxDate(logFile);
+            Date endDate = OpenAMLogUtil.getMaxDate(currentLogPropertiesStatus.getLogFile());
             if (startDate != null) {
                 model.addRow(new Object[]{END_DATE_TITLE, OpenAMLogPsiImplUtil.dateFormat.format(endDate)});
             }
@@ -163,6 +223,13 @@ public class LogPropertiesPanel extends JPanel implements Runnable {
             propertyColumn.setPreferredWidth(width + MARGIN);
         }
 
+    }
+
+    private void refreshPanel() {
+        revalidate();
+        repaint();
+        debugNameJList.repaint();
+        table.repaint();
     }
 
 }

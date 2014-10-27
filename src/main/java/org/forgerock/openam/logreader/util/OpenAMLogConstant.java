@@ -40,8 +40,14 @@ public class OpenAMLogConstant {
     public static final String LANGUAGE_NAME;
 
     public static final String ID_TOOL_WINDOW;
+    public static final String ID_TOOL_BAR_WINDOW;
 
     public static final String LOG_FILE_DESCRIPTION;
+
+    public static final String CHECKBOX_TEXT;
+    public static final String CHECKBOX_DESCRIPTION;
+    public static final String UNCHECKBOX_TEXT;
+    public static final String UNCHECKBOX_DESCRIPTION;
 
 
     private static final String AMLOG_PROPERTIES_PATH = "OpenAMLog.properties";
@@ -57,7 +63,14 @@ public class OpenAMLogConstant {
         String openAMLogFileExtension = "amlog";
         String languageName = "OpenAMLog";
         String idToolWindow = "OpenAMLogViewer";
+        String idToolBarWindow = "OpenAMLogViewer Tool bar";
         String openAMLogFileDescription = "OpenAM Log File";
+
+        String checkBoxText = "Check every debug names checkbox";
+        String checkBoxDescription = "Check every debug names checkbox";
+        String uncheckBoxText = "Uncheck every debug names checkbox";
+        String uncheckBoxDescription = "Uncheck every debug names checkbox";
+
         try {
             URL demoTextResource = OpenAMLogConstant.class.getClassLoader().getResource(AMLOG_PROPERTIES_PATH);
             if(demoTextResource == null) {
@@ -75,7 +88,12 @@ public class OpenAMLogConstant {
                 openAMLogFileExtension = prop.getProperty("openAMLogFileExtension");
                 languageName = prop.getProperty("languageName");
                 idToolWindow = prop.getProperty("idToolWindow");
+                idToolBarWindow = prop.getProperty("idToolBarWindow");
                 openAMLogFileDescription = prop.getProperty("openAMLogFileDescription");
+                checkBoxText = prop.getProperty("checkBoxText");
+                checkBoxDescription = prop.getProperty("checkBoxDescription");
+                uncheckBoxText = prop.getProperty("uncheckBoxText");
+                uncheckBoxDescription = prop.getProperty("uncheckBoxDescription");
             }
 
         } catch (IOException ex) {
@@ -93,7 +111,12 @@ public class OpenAMLogConstant {
             OPENAM_LOG_FILE_EXTENSION = openAMLogFileExtension;
             LANGUAGE_NAME = languageName;
             ID_TOOL_WINDOW = idToolWindow;
+            ID_TOOL_BAR_WINDOW = idToolBarWindow;
             LOG_FILE_DESCRIPTION = openAMLogFileDescription;
+            CHECKBOX_TEXT = checkBoxText;
+            CHECKBOX_DESCRIPTION = checkBoxDescription;
+            UNCHECKBOX_TEXT = uncheckBoxText;
+            UNCHECKBOX_DESCRIPTION = uncheckBoxDescription;
         }
     }
 

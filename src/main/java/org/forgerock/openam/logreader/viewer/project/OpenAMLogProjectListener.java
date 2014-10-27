@@ -25,7 +25,6 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowManager;
 import com.intellij.psi.PsiDocumentManager;
-import org.forgerock.openam.logreader.folding.OpenAMLogFolding;
 import org.forgerock.openam.logreader.psi.OpenAMLogFile;
 import org.forgerock.openam.logreader.util.OpenAMLogConstant;
 import org.forgerock.openam.logreader.viewer.ui.LogPropertiesPanel;
@@ -46,7 +45,7 @@ public class OpenAMLogProjectListener implements FileEditorManagerListener {
 
     private LogPropertiesPanel viewer;
     private final Project project;
-    private Map<OpenAMLogFile, OpenAMLogFolding> foldingsByLogFile = new HashMap<OpenAMLogFile, OpenAMLogFolding>();
+    private Map<OpenAMLogFile, LogPropertiesStatus> logPropertiesStatusByLogFile = new HashMap<OpenAMLogFile, LogPropertiesStatus>();
     private ToolWindow toolWindow;
     /**
      * Constructor
@@ -86,18 +85,10 @@ public class OpenAMLogProjectListener implements FileEditorManagerListener {
             OpenAMLogFile logFile = (OpenAMLogFile) psiDocumentManager.getPsiFile(editor.getDocument());
 
             // Create OpenAM folding controller
-            if (!foldingsByLogFile.containsKey(logFile)) {
-                foldingsByLogFile.put(logFile, new OpenAMLogFolding(logFile));
+            if (!logPropertiesStatusByLogFile.containsKey(logFile)) {
+                logPropertiesStatusByLogFile.put(logFile, new LogPropertiesStatus(logFile, editor));
             }
 
-            //Generate folding
-            final OpenAMLogFolding folding = foldingsByLogFile.get(logFile);
-            editor.getFoldingModel().runBatchFoldingOperation(new Runnable() {
-                @Override
-                public void run() {
-                    folding.generateFoldingRegions(editor);
-                }
-            });
 
             // Activate viewer
             if (toolWindow != null) {
@@ -106,15 +97,8 @@ public class OpenAMLogProjectListener implements FileEditorManagerListener {
 
             // initialize viewer
             viewer.setVisible(true);
-            viewer.refreshOpenAMLogProperties(logFile);
+            viewer.refreshOpenAMLogProperties(logPropertiesStatusByLogFile.get(logFile));
 
-            //TODO for testing, will be useful later.
-            editor.getFoldingModel().runBatchFoldingOperation(new Runnable() {
-                @Override
-                public void run() {
-                    //folding.close("amAuth");
-                }
-            });
         } catch (ClassCastException e) {
             closeOpenAMLogView();
         }
