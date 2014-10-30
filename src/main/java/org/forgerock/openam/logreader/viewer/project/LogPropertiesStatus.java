@@ -57,13 +57,24 @@ public class LogPropertiesStatus implements DebugNamesStatusListener{
 
     }
 
+    public void setEditor(final Editor editor) {
+        this.editor = editor;
+        editor.getFoldingModel().runBatchFoldingOperation(new Runnable() {
+            @Override
+            public void run() {
+                folding.generateFoldingRegions(editor);
+            }
+        });
+    }
+
     public OpenAMLogFile getLogFile() {
         return logFile;
     }
 
     public boolean isDebugNameSelected(String debugName) {
         if(!debugNamesStatus.containsKey(debugName)) {
-            throw new IllegalArgumentException("Debug name '" + debugName + "' isn't declared in this log file.");
+            throw new IllegalArgumentException("Debug name '" + debugName + "' isn't declared in this log file " +
+                    getLogFile().getName() + ".");
         }
         return debugNamesStatus.get(debugName);
     }
