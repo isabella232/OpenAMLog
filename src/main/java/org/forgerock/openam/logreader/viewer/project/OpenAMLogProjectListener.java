@@ -88,6 +88,8 @@ public class OpenAMLogProjectListener implements FileEditorManagerListener {
             if (!logPropertiesStatusByLogFile.containsKey(logFile)) {
                 logPropertiesStatusByLogFile.put(logFile, new LogPropertiesStatus(logFile, editor));
             }
+            LogPropertiesStatus logPropertiesStatus = logPropertiesStatusByLogFile.get(logFile);
+            logPropertiesStatus.setEditor(editor);
 
 
             // Activate viewer
@@ -97,7 +99,7 @@ public class OpenAMLogProjectListener implements FileEditorManagerListener {
 
             // initialize viewer
             viewer.setVisible(true);
-            viewer.refreshOpenAMLogProperties(logPropertiesStatusByLogFile.get(logFile));
+            viewer.refreshOpenAMLogProperties(logPropertiesStatus);
 
         } catch (ClassCastException e) {
             closeOpenAMLogView();
@@ -109,7 +111,8 @@ public class OpenAMLogProjectListener implements FileEditorManagerListener {
      * Close the OpenAM log viewer
      */
     private void closeOpenAMLogView() {
-        if (toolWindow != null) {
+        if (toolWindow != null && ToolWindowManager.getInstance(project).getToolWindow(OpenAMLogConstant
+                .ID_TOOL_WINDOW) != null) {
             toolWindow.hide(viewer);
         }
         //not an OpenAM log file
