@@ -1,50 +1,79 @@
-<idea-plugin version="2">
-  <id>com.forgerock.openam.logreader</id>
-  <name>OpenAM Log</name>
-  <version>0.1</version>
-  <vendor email="quentin.castel@forgerock.com" url="http://www.forgerock.org">ForgeRock</vendor>
+<!--
+  ~ The contents of this file are subject to the terms of the Common Development and
+  ~ Distribution License (the License). You may not use this file except in compliance with the
+  ~ License.
+  ~
+  ~ You can obtain a copy of the License at legal/CDDLv1.0.txt. See the License for the
+  ~ specific language governing permission and limitations under the License.
+  ~
+  ~ When distributing Covered Software, include this CDDL Header Notice in each file and include
+  ~ the License file at legal/CDDLv1.0.txt. If applicable, add the following below the CDDL
+  ~ Header, with the fields enclosed by brackets [] replaced by your own identifying
+  ~ information: "Portions copyright 2014 ForgeRock AS".
+  ~
+  ~ Copyright 2014 ForgeRock AS.
+  -->
 
-  <description><![CDATA[
+<idea-plugin version="2">
+    <id>com.forgerock.openam.logreader</id>
+    <name>OpenAM Log</name>
+    <version>0.1</version>
+    <vendor email="quentin.castel@forgerock.com" url="http://www.forgerock.org">ForgeRock</vendor>
+
+    <description><![CDATA[
       OpenAM log reader
       ]]></description>
 
-  <change-notes><![CDATA[
-      <ul>
-        <li>First version of the plugin</li>
-      </ul>
-      
-      configure git
-      ]]>
-  </change-notes>
+    <change-notes><![CDATA[
 
-  <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
-  <idea-version since-build="107.105"/>
+    <h2>Editor interpretation</h2>
+    <ul>
+        <li>Language support</li>
+        <li>Coloring text</li>
+        <li>Modify color</li>
+        <li>PSI parsing, compatible with plugins based on PSI elements</li>
+    </ul>
+    <h2>Tool window</h2>
+    <ul>
+        <li>Log properties sum up</li>
+        <li>Debug names used list</li>
+        <li>Auto-folding logs by debug name</li>
+    </ul>
+            ]]>
+    </change-notes>
 
-  <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
-       on how to target different products -->
-  <!-- uncomment to enable plugin in all products
-  <depends>com.intellij.modules.lang</depends>
-  -->
+    <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
+    <idea-version since-build="107.105"/>
+
+    <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
 
     <project-components>
         <component>
-            <implementation-class>org.forgerock.openam.logreader.viewer.project.OpenAMLogProjectComponent</implementation-class>
+            <implementation-class>org.forgerock.openam.logreader.viewer.project.OpenAMLogProjectComponent
+            </implementation-class>
             <option name="workspace" value="true"/>
         </component>
     </project-components>
-    <application-components>
-    </application-components>
 
-    <actions>
+    <application-components></application-components>
 
-    </actions>
+    <actions></actions>
 
-  <extensions defaultExtensionNs="com.intellij">
-    <!-- Add your extensions here -->
-      <fileTypeFactory implementation="org.forgerock.openam.logreader.OpenAMLogFileTypeFactory"/>
-      <lang.parserDefinition language="OpenAMLog" implementationClass="org.forgerock.openam.logreader.OpenAMLogParserDefinition"/>
-      <lang.syntaxHighlighterFactory key="OpenAMLog" implementationClass="org.forgerock.openam.logreader.OpenAMLogSyntaxHighlighterFactory"/>
-      <colorSettingsPage implementation="org.forgerock.openam.logreader.OpenAMLogColorSettingsPage"/>
+    <extensions defaultExtensionNs="com.intellij">
+        <fileTypeFactory implementation="org.forgerock.openam.logreader.file.OpenAMLogFileTypeFactory"/>
 
-  </extensions>
+        <lang.parserDefinition language="OpenAMLog"
+                               implementationClass="org.forgerock.openam.logreader.parser.OpenAMLogParserDefinition"/>
+
+        <lang.syntaxHighlighterFactory key="OpenAMLog"
+                                       implementationClass="org.forgerock.openam.logreader.highlight.OpenAMLogSyntaxHighlighterFactory"/>
+        <colorSettingsPage implementation="org.forgerock.openam.logreader.highlight.OpenAMLogColorSettingsPage"/>
+        <additionalTextAttributes scheme="Default" file="colorSchemes/OpenAMLogDefault.xml"/>
+        <additionalTextAttributes scheme="Darcula" file="colorSchemes/OpenAMLogDarcula.xml"/>
+    </extensions>
+
 </idea-plugin>
