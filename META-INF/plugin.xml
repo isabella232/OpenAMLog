@@ -37,6 +37,7 @@
     <ul>
         <li>Log properties sum up</li>
         <li>Debug names used list</li>
+        <li>Auto-folding logs by debug name</li>
     </ul>
             ]]>
     </change-notes>
