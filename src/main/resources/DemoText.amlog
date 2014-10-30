@@ -1,0 +1,62 @@
+# You are reading the OpenAM Log file.
+amLoginModule:10/14/2014 01:44:00:457 PM CEST: Thread[http-bio-8443-exec-8964,5,main]
+clone #2 is PasswordCallback
+amLoginModule:10/14/2014 01:44:00:457 PM CEST: Thread[http-bio-8443-exec-8964,5,main]
+Login, state = 1
+amCallback:10/14/2014 01:44:00:457 PM CEST: Thread[http-bio-8443-exec-8964,5,main]
+callback handler method
+amCallback:10/14/2014 01:44:00:457 PM CEST: Thread[http-bio-8443-exec-8964,5,main]
+Set callbacks, throwing java.lang.Error.
+amJAAS:10/14/2014 01:44:00:457 PM CEST: Thread[http-bio-8443-exec-8964,5,main]
+LoginContext.invoke(): Handling expected java.lang.Error
+amAuth:10/14/2014 01:44:00:457 PM CEST: Thread[http-bio-8443-exec-8964,5,main]
+Caught java.lang.Error returned from DSAMEHandler
+java.lang.Error: return from DSAMECallback
+	at com.sun.identity.authentication.service.DSAMECallbackHandler.handle(DSAMECallbackHandler.java:141)
+	at com.sun.identity.authentication.spi.AMLoginModule.login(AMLoginModule.java:1134)
+	at sun.reflect.GeneratedMethodAccessor51.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.sun.identity.authentication.jaas.LoginContext.invoke(LoginContext.java:210)
+	at com.sun.identity.authentication.jaas.LoginContext.login(LoginContext.java:123)
+	at com.sun.identity.authentication.service.AMLoginContext.runLogin(AMLoginContext.java:557)
+	at com.sun.identity.authentication.service.AMLoginContext.executeLogin(AMLoginContext.java:515)
+	at com.sun.identity.authentication.server.AuthContextLocal.login(AuthContextLocal.java:544)
+	at com.sun.identity.authentication.server.AuthContextLocal.login(AuthContextLocal.java:436)
+	at com.sun.identity.authentication.server.AuthContextLocal.login(AuthContextLocal.java:287)
+	at com.sun.identity.authentication.server.AuthContextLocal.login(AuthContextLocal.java:219)
+	at com.sun.identity.authentication.server.AuthXMLHandler.processAuthXMLRequest(AuthXMLHandler.java:427)
+	at com.sun.identity.authentication.server.AuthXMLHandler.processRequest(AuthXMLHandler.java:240)
+	at com.sun.identity.authentication.server.AuthXMLHandler.process(AuthXMLHandler.java:144)
+	at com.iplanet.services.comm.server.PLLRequestServlet.handleRequest(PLLRequestServlet.java:183)
+	at com.iplanet.services.comm.server.PLLRequestServlet.doPost(PLLRequestServlet.java:136)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.forgerock.openam.validation.ResponseValidationFilter.doFilter(ResponseValidationFilter.java:44)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at com.sun.identity.setup.AMSetupFilter.doFilter(AMSetupFilter.java:100)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:611)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+amAuth:10/14/2014 01:44:00:457 PM CEST: Thread[http-bio-8443-exec-8964,5,main]
+AMLoginContext:Thread started... returning.
