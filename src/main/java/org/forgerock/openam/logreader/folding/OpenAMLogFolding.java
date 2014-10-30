@@ -32,12 +32,12 @@ import java.util.Map;
 
 /**
  * Manage the folding of an OpenAM log file
- *
+ * <p/>
  * Folding is the action on a IDE to minimize a block
  *
  * @author qcastel
- * Date: 18/10/2014
- * Project: OpenAMLogPlugin
+ *         Date: 18/10/2014
+ *         Project: OpenAMLogPlugin
  */
 public class OpenAMLogFolding {
 
@@ -52,18 +52,19 @@ public class OpenAMLogFolding {
 
     /**
      * Constructor for managing a OpenAM log file
+     *
      * @param openAMLogFile OpenAM log file
      */
     public OpenAMLogFolding(OpenAMLogFile openAMLogFile) {
         this.openAMLogFile = openAMLogFile;
     }
 
-    public void generateFoldingRegions(Editor editor) {
+    public void generateFoldingRegions(final Editor editor) {
 
-        //Reset previous map
-        for (FoldRegion foldRegion : logFoldingRegion.values()) {
+        for (final FoldRegion foldRegion : logFoldingRegion.values()) {
             editor.getFoldingModel().removeFoldRegion(foldRegion);
         }
+
         logFoldingRegionByDebugNames.clear();
         logFoldingRegion.clear();
 
@@ -78,7 +79,7 @@ public class OpenAMLogFolding {
                     FoldRegion foldingRegion = editor.getFoldingModel().addFoldRegion(textRange.getStartOffset(), textRange.getEndOffset() - 1, log.getLogtitle().getDebugName() + ":"
                             + OpenAMLogPsiImplUtil.dateFormat.format(log.getLogtitle().getDate()) + "\n");
 
-                    if(foldingRegion == null) {
+                    if (foldingRegion == null) {
                         LOG.warn("A Fold region creation failed. textRange : '" + textRange + "'");
                         break;
                     }
@@ -106,6 +107,7 @@ public class OpenAMLogFolding {
 
     /**
      * Expand every folds associated with a debug name
+     *
      * @param debugName debug name
      */
     public void expandFold(String debugName) {
@@ -114,6 +116,7 @@ public class OpenAMLogFolding {
 
     /**
      * Un-expand every folds associated with a debug name
+     *
      * @param debugName debug name
      */
     public void unexpandFold(String debugName) {
@@ -122,8 +125,9 @@ public class OpenAMLogFolding {
 
     /**
      * Expand or un-expand every folds associated with a debug name
+     *
      * @param debugName debug name
-     * @param action true if you want to expand all of them, false in the contrary
+     * @param action    true if you want to expand all of them, false in the contrary
      */
     private void expandFold(String debugName, boolean action) {
         isDebugNameUnExpanded.put(debugName, action);
@@ -136,6 +140,7 @@ public class OpenAMLogFolding {
 
     /**
      * Check if every folds associated with this debug name are expanded
+     *
      * @param debugName debug name
      * @return true if they are expanded
      */

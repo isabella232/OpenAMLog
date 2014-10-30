@@ -42,6 +42,12 @@ public class LogPropertiesStatus implements DebugNamesStatusListener{
         this.editor = editor;
         this.folding = new OpenAMLogFolding(logFile);
 
+        init();
+
+    }
+
+    private void init() {
+
         //Set every debug names open at beginning
         for(String debugName : OpenAMLogUtil.findAllDebugNames(logFile)) {
             debugNamesStatus.put(debugName, true);
@@ -51,20 +57,19 @@ public class LogPropertiesStatus implements DebugNamesStatusListener{
         editor.getFoldingModel().runBatchFoldingOperation(new Runnable() {
             @Override
             public void run() {
-            folding.generateFoldingRegions(editor);
+                folding.generateFoldingRegions(editor);
             }
         });
 
     }
 
     public void setEditor(final Editor editor) {
-        this.editor = editor;
-        editor.getFoldingModel().runBatchFoldingOperation(new Runnable() {
-            @Override
-            public void run() {
-                folding.generateFoldingRegions(editor);
-            }
-        });
+        if(this.editor != editor) {
+            this.editor = editor;
+            this.folding = new OpenAMLogFolding(logFile);
+
+            init();
+        }
     }
 
     public OpenAMLogFile getLogFile() {
