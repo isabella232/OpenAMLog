@@ -14,7 +14,7 @@
  * Copyright 2014 ForgeRock AS.
  */
 
- package org.forgerock.openam.logreader;
+ package org.forgerock.openam.logreader.parser;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
